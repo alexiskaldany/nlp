@@ -13,3 +13,8 @@ Diagnostic Questions
 
 Paragraph of text with 4 potential outputs. classification?
 Need to get large dataset (scrape potentially?)
+
+AWS
+for EC2: 
+`Alexis-Labadie Kaldany`
+`akaldany@gwu.edu`

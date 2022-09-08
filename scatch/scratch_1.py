@@ -47,3 +47,7 @@ deq.extend(["f","g"])
 print(list(deq))
 # list = deq.rotate(2)
 # print(list)
+
+text0=" ING Bank\\n Mizuho Bank\\n SMBC\\n Sarulla Power Asset Limited "
+
+print(text0)
