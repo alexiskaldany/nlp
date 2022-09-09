@@ -3,7 +3,7 @@ from spacy import displacy
 with open("data/genesis_1.txt", "r") as f:
     text = f.read()
 
-nlp = spacy.load("en_core_web_sm")
+nlp = spacy.load("en_core_web_trf")
 
 doc = nlp(text)
 sentences = list(doc.sents)
