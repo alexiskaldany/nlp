@@ -101,3 +101,12 @@ class Classical:
         similarity = self.doc.similarity(external_doc)
         logger.info("Text compared")
         return similarity
+    
+    def regex_matches(self,pattern:str):
+        """
+        Get regex matches
+        """
+        regex_matches = re.finditer(pattern,self.text)
+        match_list = [(match.span(),self.text[match.span()[0]:match.span()[1]]) for match in regex_matches]
+        logger.info("Regex matches extracted")
+        return regex_matches,match_list
