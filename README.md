@@ -6,6 +6,10 @@
 `source .venv/bin/activate`
 `pip3 freeze > requirements.txt`
 
+`python -m venv .venv`
+`source .venv/bin/activate`
+`pip install --upgrade pip`
+`pip install -r requirements.txt`
 
 ## Final Project Ideas
 
@@ -18,3 +22,5 @@ AWS
 for EC2: 
 `Alexis-Labadie Kaldany`
 `akaldany@gwu.edu`
+
+ssh -i "/Users/alexiskaldany/Personal/nlp_key.pem" ubuntu@ec2-44-211-125-190.compute-1.amazonaws.com
