@@ -5,7 +5,7 @@
 import pandas as pd
 # i. Use pandas to load the data.csv data.
 
-df_2 = pd.read_csv('data (1).csv')
+df_2 = pd.read_csv("/Users/alexiskaldany/school/nlp/code/homework/data (1).csv")
 # ii. Use Spacy to find the word level attributions ( Tokenized word, StartIndex, Lemma,
 # punctuation,white space ,WordShape, PartOfSpeech, POSTag). Use one of the titles
 # in the dataframe and create a dataframe which rows are the word and the columns are
@@ -56,10 +56,11 @@ word_similarity = nlp('cat').similarity(nlp('dog'))
 # data1.txt.
 
 # i. Use pandas to load the data1.csv data.
-df_1 = pd.read_csv('data1.csv')
+df_1 = pd.read_csv('/Users/alexiskaldany/school/nlp/code/homework/data1.csv')
 # ii. Let’s look at some examples of real world sentences. Grab a tweet and explain the text
 # entities.
-tweet = df_1['tweet'][0]
+print(df_1.head())
+tweet = df_1['text'][0]
 text = [token.text for token in nlp(tweet)]
 # iii. One simple use case for NER is redact names. This is important and quite useful. Find a
 # tweet which has a name in it and then redact it by word [REDACTED].
@@ -87,10 +88,13 @@ similarity = nlp(tweet).similarity(nlp('Apple is looking at buying U.K. startup 
 # Write a function that checks a string contains only a certain set of characters
 # (all chars lower and upper case with all digits).
 # ----------------------------------------------------------------
-
+import re
 print(20*'-' + 'Begin Q1' + 20*'-')
 
-
+def check_string(string):
+    pattern = re.compile(r'[^a-zA-Z0-9.]')
+    string = pattern.sub('', string)
+    return string
 
 
 
