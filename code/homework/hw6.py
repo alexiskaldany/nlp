@@ -1,9 +1,9 @@
 #%%
-from email import header
 import numpy as np
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
+from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 from sklearn import metrics
 import os
@@ -137,9 +137,16 @@ review_list.extend([{'text': ' '.join(i), 'label': 'neg'} for i in negative])
 # with open('review_list.json', 'w') as f:
 #     json.dump(review_list, f)
 df = pd.DataFrame(review_list)
+df_train = df.sample(frac=0.8, random_state=200)
+df_test = df.drop(df_train.index)
+from sklearn.feature_extraction.text import CountVectorizer
 
-# positive_paras = movie_reviews.paras(categories=['pos'])
-
+vectorizer = CountVectorizer(ngram_range=(1, 100),token_pattern = r"(?u)\b\w+\b")
+X_train = vectorizer.fit_transform(df_train['text'])
+X_test = vectorizer.transform(df_test['text'])
+clf = MultinomialNB().fit(X_train, df_train['label'].values)
+predicted = clf.predict(X_test)
+print(metrics.classification_report(df_test['label'], predicted, target_names=df['label'].unique()))
 # positive_list = [(" ".join(positive[i]), 'pos') for i in range(len(positive))]
 
 
@@ -189,14 +196,41 @@ print(20*'-' + 'End Q5' + 20*'-')
 # ----------------------------------------------------------------
 print(20*'-' + 'Begin Q6' + 20*'-')
 
+data_path = os.path.join(os.getcwd(), 'data5.csv')
+df = pd.read_csv(data_path,encoding_errors='ignore')
+
+def logistic_regression(dataframe:pd.DataFrame,feature:str,target:str):
+    from sklearn.linear_model import LogisticRegression
+    df_train = dataframe.sample(frac=0.8, random_state=200)
+    df_test = dataframe.drop(df_train.index)
+    print(df_train.shape)
+    print(df_test.shape)
+    tfidf= TfidfVectorizer()
+    tfidf.fit(df_train[feature])
+    X_train_tfidf =tfidf.transform(df_train[feature])
+    print(X_train_tfidf.shape)
+    clf = LogisticRegression().fit(X_train_tfidf, df_train[target].values)
+    X_test_tfidf = tfidf.transform(df_test[feature])
+    predicted = clf.predict(X_test_tfidf)
+
+    report = metrics.classification_report(df_test[target], predicted, target_names=df[target].unique())
+    confusion_matrix =metrics.confusion_matrix(df_test[target], predicted)
+    return [report, confusion_matrix]
 
 
+reports = logistic_regression(df,'text','label')
 
-
-
-
-
-
+def lsa_method(dataframe:pd.DataFrame,feature:str,target:str):
+    from sklearn.decomposition import TruncatedSVD
+    df_train = dataframe.sample(frac=0.8, random_state=200)
+    df_test = dataframe.drop(df_train.index)
+    print(df_train.shape)
+    print(df_test.shape)
+    svd = TruncatedSVD(n_components=100, n_iter=7, random_state=42)
+    tfidf= TfidfVectorizer()
+    tfidf.fit(df_train[feature])
+    X_train_tfidf =tfidf.transform(df_train[feature])
+    svd_fit = svd.transform(X_train_tfidf)
 
 
 
