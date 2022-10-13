@@ -2,9 +2,12 @@
 
 
 
-`python -m venv .venv`
-`source .venv/bin/activate`
-`pip3 freeze > requirements.txt`
+```
+
+python -m venv .venv
+source .venv/bin/activate
+pip3 freeze > requirements.txt
+```
 
 `python -m venv .venv`
 `source .venv/bin/activate`
@@ -24,3 +27,11 @@ for EC2:
 `akaldany@gwu.edu`
 
 ssh -i "/Users/alexiskaldany/Personal/nlp_key.pem" ubuntu@ec2-44-211-125-190.compute-1.amazonaws.com
+
+----------------
+## Midterm
+
+Write Regex guide
+Create code for SVD/Last lecture stuff
+Write guide for nltk
+Write guide for spaCy

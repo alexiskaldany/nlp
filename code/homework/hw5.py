@@ -1,4 +1,3 @@
-#%%
 # E.1:
 # In part of this exercise, you will use regular expression.
 import re
@@ -37,13 +36,14 @@ full_list = []
 names_ending_with_ski = [re.findall(r"[A-Z][a-z]+ski",line) for line in lines]
 names_ending_with_ski = [name for name in names_ending_with_ski if name != []]
 
-print(names_ending_with_ski)
-#%%
+
+# print(names_ending_with_ski[:25])
+
 from collections import Counter, defaultdict
 # iii. Put all the names into a dictionary and sort them.
 names_dict = Counter([name[0] for name in names_ending_with_ski])
 sorted_dict = dict(names_dict.most_common(len(names_dict.keys())))
-print(sorted_dict)
+# print(sorted_dict)
 #%%
 # 1
 # E.3:
@@ -56,13 +56,41 @@ def join_numbers(text):
 
 # ii. Write a program with regular expression that find the content in the parenthesise and
 # replace it with ”(xxxxx)”
+
+def find_parentheses(text):
+    return re.sub(r"\(([^)]+)\)",r"(xxxxx)",text)
+
+print(find_parentheses("I am (Alexis) and I am (Alexis)"))
+
 # iii. Write a program that find any word ends with ”ly”.
+
+def find_words_ending_with_ly(text):
+    return re.findall(r"\w+ly",text)
+print(find_words_ending_with_ly("I am very happy and I am very sadly"))
 # iv. Write a program that finds all the quotes in the text and prints the strings in between.
+
+def find_quotes(text):
+    return re.findall(r"\"(.+?)\"",text)
 # v. Write a program that finds all words which has 3,4,5 charters in the text.
+
+def find_words_with_3_4_5_characters(text):
+    return re.findall(r"\b\w{3,5}\b",text)
+
+print(find_words_with_3_4_5_characters("I am very happy and I am very sadly"))
+
 # v. Write a program that replaces a comma with a hyphen.
+
+def replace_comma_with_hyphen(text):
+    return re.sub(r",","-",text)
+
 # vi. Write a program that extract year, month and date from any url which has date init which
-# follows by forward slashes. ”https://www.yahoo.com/news/football/wew/2021/09/02/odell–
-# famer-rrrr-on-one-tr-littleball–norman-stupid-author/”
+# follows by forward slashes. ”https://www.yahoo.com/news/football/wew/2021/09/02/odell–famer-rrrr-on-one-tr-littleball–norman-stupid-author/”
+
+def find_dates_in_url(text):
+    return re.findall(r"\d{4}/\d{2}/\d{2}",text)
+
+print(find_dates_in_url("https://www.yahoo.com/news/football/wew/2021/09/02/odell–famer-rrrr-on-one-tr-littleball–norman-stupid-author/"))
+
 # E.4:
 # Answer all the class exercise questions and submit it (Check the instructions).
 
