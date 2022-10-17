@@ -1,4 +1,5 @@
-#%%
+
+from turtle import back
 import numpy as np
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -8,7 +9,7 @@ from sklearn.pipeline import Pipeline
 from sklearn import metrics
 import os
 import json
-#%%
+
 # =================================================================
 # Class_Ex1:
 #  Use the following datframe as the sample data.
@@ -25,7 +26,7 @@ Char_given_Occurance['P(f|Occurance)'] = Char_given_Occurance['f'] / Occurance_v
 
 
 print(20*'-' + 'End Q1' + 20*'-')
-#%%
+
 # =================================================================
 # Class_Ex2:
 # Use the following datframe as the sample data.
@@ -64,7 +65,9 @@ print(20*'-' + 'End Q2' + 20*'-')
 # 4- Explain your results very carefully.
 # ----------------------------------------------------------------
 print(20*'-' + 'Begin Q3' + 20*'-')
-data_path = os.path.join(os.getcwd(), 'data5.csv')
+print(os.getcwd())
+data_path = os.getcwd() + '/code/homework/data5.csv'
+print(data_path)
 df = pd.read_csv(data_path,encoding_errors='ignore')
 # df['label'] = df['label'].str.replace('__label__', '').astype(int)
 
@@ -95,7 +98,6 @@ def naive_bayes(dataframe:pd.DataFrame,feature:str,target:str):
     clf = MultinomialNB().fit(X_train_tfidf, df_train[target].values)
     X_test_tfidf = tfidf.transform(df_test[feature])
     predicted = clf.predict(X_test_tfidf)
-
     report = metrics.classification_report(df_test[target], predicted, target_names=df[target].unique())
     confusion_matrix =metrics.confusion_matrix(df_test[target], predicted)
     return [report, confusion_matrix]
@@ -111,7 +113,7 @@ print(reports[0])
 
 
 print(20*'-' + 'End Q3' + 20*'-')
-#%%
+
 # =================================================================
 # Class_Ex4:
 # Use Naive bayes classifier for this problem,
@@ -122,31 +124,29 @@ print(20*'-' + 'End Q3' + 20*'-')
 # from nltk.corpus import movie_reviews
 
 # ----------------------------------------------------------------
-#%%
+
 print(20*'-' + 'Begin Q4' + 20*'-')
 
 from nltk.corpus import movie_reviews
 
 positive = list(movie_reviews.sents(categories=['pos']))
-# with open('positive.json', 'w') as f:
-#     json.dump(positive, f)
-negative= movie_reviews.sents(categories=['neg'])
-review_list =[{'text': ' '.join(i), 'label': 'pos'} for i in positive]
-review_list.extend([{'text': ' '.join(i), 'label': 'neg'} for i in negative])
+# negative= movie_reviews.sents(categories=['neg'])
+# review_list =[{'text': ' '.join(i), 'label': 'pos'} for i in positive]
+# review_list.extend([{'text': ' '.join(i), 'label': 'neg'} for i in negative])
 
 # with open('review_list.json', 'w') as f:
 #     json.dump(review_list, f)
-df = pd.DataFrame(review_list)
-df_train = df.sample(frac=0.8, random_state=200)
-df_test = df.drop(df_train.index)
-from sklearn.feature_extraction.text import CountVectorizer
+# df = pd.DataFrame(review_list)
+# df_train = df.sample(frac=0.8, random_state=200)
+# df_test = df.drop(df_train.index)
+# from sklearn.feature_extraction.text import CountVectorizer
 
-vectorizer = CountVectorizer(ngram_range=(1, 100),token_pattern = r"(?u)\b\w+\b")
-X_train = vectorizer.fit_transform(df_train['text'])
-X_test = vectorizer.transform(df_test['text'])
-clf = MultinomialNB().fit(X_train, df_train['label'].values)
-predicted = clf.predict(X_test)
-print(metrics.classification_report(df_test['label'], predicted, target_names=df['label'].unique()))
+# vectorizer = CountVectorizer(ngram_range=(1, 100),token_pattern = r"(?u)\b\w+\b")
+# X_train = vectorizer.fit_transform(df_train['text'])
+# X_test = vectorizer.transform(df_test['text'])
+# clf = MultinomialNB().fit(X_train, df_train['label'].values)
+# predicted = clf.predict(X_test)
+# print(metrics.classification_report(df_test['label'], predicted, target_names=df['label'].unique()))
 # positive_list = [(" ".join(positive[i]), 'pos') for i in range(len(positive))]
 
 
@@ -161,7 +161,6 @@ print(metrics.classification_report(df_test['label'], predicted, target_names=df
 
 print(20*'-' + 'End Q4' + 20*'-')
 
-#%%
 # =================================================================
 # Class_Ex5:
 # Calculate accuracy percentage between two lists
@@ -196,8 +195,8 @@ print(20*'-' + 'End Q5' + 20*'-')
 # ----------------------------------------------------------------
 print(20*'-' + 'Begin Q6' + 20*'-')
 
-data_path = os.path.join(os.getcwd(), 'data5.csv')
-df = pd.read_csv(data_path,encoding_errors='ignore')
+data_path = os.getcwd()+'/code/homework/data5.csv'
+dataframe = pd.read_csv(data_path,encoding_errors='ignore')
 
 def logistic_regression(dataframe:pd.DataFrame,feature:str,target:str):
     from sklearn.linear_model import LogisticRegression
@@ -212,7 +211,6 @@ def logistic_regression(dataframe:pd.DataFrame,feature:str,target:str):
     clf = LogisticRegression().fit(X_train_tfidf, df_train[target].values)
     X_test_tfidf = tfidf.transform(df_test[feature])
     predicted = clf.predict(X_test_tfidf)
-
     report = metrics.classification_report(df_test[target], predicted, target_names=df[target].unique())
     confusion_matrix =metrics.confusion_matrix(df_test[target], predicted)
     return [report, confusion_matrix]
@@ -220,17 +218,61 @@ def logistic_regression(dataframe:pd.DataFrame,feature:str,target:str):
 
 reports = logistic_regression(df,'text','label')
 
-def lsa_method(dataframe:pd.DataFrame,feature:str,target:str):
+
+# from sklearn.decomposition import TruncatedSVD
+# df_train = dataframe.sample(frac=0.8, random_state=200)
+# df_test = dataframe.drop(df_train.index)
+# print(df_train.shape)
+# print(df_test.shape)
+# print(df_train.columns)
+
+# tfidf= TfidfVectorizer()
+# tfidf.fit(df_train['text'])
+# X_train_tfidf =tfidf.transform(df_train['text'])
+# print(X_train_tfidf.shape)
+# X_train_svd = TruncatedSVD(n_components=100, n_iter=20, random_state=42).fit_transform(X_train_tfidf)
+# ### Try different n_components and fitting to different models (linear, logistic, Bayes.)
+# clf = LogisticRegression().fit(X_train_svd, df_train['label'].values)
+# predicted = clf.predict(X_train_svd)
+# report = metrics.classification_report(df_train['label'], predicted, target_names=df['label'].unique())
+# confusion_matrix =metrics.confusion_matrix(df_train['label'], predicted)
+# print(report)
+# print(confusion_matrix)
+
+
+
+# back_to_text = tfidf.inverse_transform(new_X_train_tfidf)
+# print(len(back_to_text[0]))
+# print(back_to_text[0])
+# print(feature_names[0])
+
+def with_svd_all_models(dataframe:pd.DataFrame,feature:str,target:str):
     from sklearn.decomposition import TruncatedSVD
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.naive_bayes import MultinomialNB
+    from sklearn.feature_extraction.text import TfidfVectorizer
+    from sklearn import metrics
     df_train = dataframe.sample(frac=0.8, random_state=200)
     df_test = dataframe.drop(df_train.index)
-    print(df_train.shape)
-    print(df_test.shape)
-    svd = TruncatedSVD(n_components=100, n_iter=7, random_state=42)
     tfidf= TfidfVectorizer()
     tfidf.fit(df_train[feature])
     X_train_tfidf =tfidf.transform(df_train[feature])
-    svd_fit = svd.transform(X_train_tfidf)
+    X_test_tfidf = tfidf.transform(df_test[feature])
+    SVD_fit= TruncatedSVD(n_components=1000, n_iter=25, random_state=42).fit(X_train_tfidf) 
+    X_train_svd = SVD_fit.transform(X_train_tfidf)
+    LR_PREDICT = LogisticRegression().fit(X_train_svd, df_train[target].values).predict(SVD_fit.transform(X_test_tfidf))
+    report = metrics.classification_report(df_test[target], LR_PREDICT, target_names=df[target].unique())
+    confusion_matrix =metrics.confusion_matrix(df_test[target], LR_PREDICT)
+    # BAYES_PREDICT = MultinomialNB().fit(X_train_svd, df_train[target].values).predict(SVD_fit.transform(X_test_tfidf))
+    # print('MultinomialNB')
+    # print(metrics.classification_report(df_test[target], BAYES_PREDICT, target_names=df[target].unique()))
+    return [report, confusion_matrix]
+svd_reports = with_svd_all_models(df,'text','label')
+print('Logistic Regression')
+print(reports[0])
+print('LR with SVD')
+print(svd_reports[0])
+
 
 
 
