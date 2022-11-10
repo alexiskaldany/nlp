@@ -33,20 +33,7 @@ def classify_sentiment(sentence):
     return score
 
 
-tensor = torch.tensor([1, 2, 3, 4, 5,6])
-print(tensor)
-reshaped = tensor.reshape(2, 3)
-print(reshaped)
 
-from torch.autograd import Variable
-x = Variable(torch.ones(3, 2), requires_grad=True)
-y = Variable(torch.ones(2, 3), requires_grad=True)
-z = Variable(torch.ones(3, 2), requires_grad=True)
-a = torch.mm(x, y)
-b = torch.mm(a, z)
-c = torch.sum(b)
-
-c.backward()
 
 
 print(20*'-' + 'End Q1' + 20*'-')

@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 .DS_Store
 code/main_copy.py
+glove.6B.50d.txt
