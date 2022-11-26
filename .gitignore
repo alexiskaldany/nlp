@@ -130,3 +130,4 @@ dmypy.json
 .DS_Store
 code/main_copy.py
 glove.6B.50d.txt
+TEST_2/covid_articles_raw.csv

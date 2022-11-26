@@ -8,6 +8,7 @@ from torch import nn
 from torch.utils.data import Dataset, DataLoader
 from transformers import BertTokenizer
 import pandas as pd
+import matplotlib.pyplot as plt
 
 
 """ 
@@ -44,14 +45,17 @@ class CustomDataset(Dataset):
         return self.tokenized_input[index], self.one_hot_labels[index]
 
 
-MAX_LEN = 252
+MAX_LEN = 512
 HIDDEN_SIZE = 768
-NUM_EPOCHS = 1000
-PRINT_LOSS_EVERY = 10
-train_dataframe = pd.read_csv("/Users/alexiskaldany/school/nlp/TEST_2/covid.csv").rename(columns={"content": "input", "category": "target"})
+NUM_EPOCHS = 1
+PRINT_LOSS_EVERY = 1
+# train_dataframe = pd.read_csv("/Users/alexiskaldany/school/nlp/TEST_2/covid_articles_raw.csv").rename(columns={"content": "input", "category": "target"})[:5000]
+# train_dataframe.to_csv("/Users/alexiskaldany/school/nlp/TEST_2/covid_articles.csv")
+train_dataframe = pd.read_csv("/Users/alexiskaldany/school/nlp/TEST_2/covid_articles.csv").rename(columns={"content": "input", "category": "target"})
 labels = train_dataframe['target'].unique()
 NUM_OF_CLASSES = len(labels)
 train_dataset = CustomDataset(train_dataframe, input_column = "input", target_column = "target", max_len = MAX_LEN)
+loss_record = []
 # print(train_dataset[0][0].shape)
 # print(train_dataset[0][0].float().squeeze(0).shape)
 print(len(train_dataset.tokenized_input))
@@ -101,14 +105,42 @@ for epoch in range(NUM_EPOCHS):
         output = model(input)
         loss = loss_function(output, target)
         loss.backward()
+        loss_record.append(loss.detach().cpu().numpy())
         optimizer.step()
         if i % PRINT_LOSS_EVERY == 0:
             print(f"Epoch: {epoch}, Loss: {loss}")
-        
+
+""" Test the MLP
+
+presumably there will be a test set?
+
+figure out a metric to evaluate the model and print it out
+"""        
 
 """
 RNN
 """
+
+
+class LSTM(nn.Module):
+    """ 
+    Includes an embedding layer, LSTM, and a softmax layer.
+    """
+
+    def __init__(self, input_size, hidden_size, output_size):
+        super(LSTM, self).__init__()
+        self.hidden_size = hidden_size
+        self.embedding = nn.Embedding(input_size, hidden_size)
+        self.lstm = nn.LSTM(hidden_size, hidden_size)
+        self.linear = nn.Linear(hidden_size, output_size)
+        self.softmax = nn.LogSoftmax(dim=1)
+    def forward(self, input, hidden):
+        embedded = self.embedding(input).view(1, 1, -1)
+        output = embedded
+        output, hidden = self.lstm(output, hidden)
+        output = self.linear(output[0])
+        output = self.softmax(output)
+        return output, hidden
 
 """ 
 Transformer
