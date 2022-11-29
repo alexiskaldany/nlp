@@ -2,15 +2,12 @@ import transformers
 import torch
 from torch.utils.data import Dataset
 from transformers import (
-    BertTokenizer,
-    BertModel,
-    BertForSequenceClassification,
+    AutoConfig,
     AutoTokenizer,
     AutoModelForSequenceClassification,
     TrainingArguments,
     Trainer,
     DataCollatorWithPadding,
-    
 )
 import random
 from datasets import load_metric
@@ -19,15 +16,18 @@ import pandas as pd
 from pathlib import Path
 from typing import List, Dict, Union
 import gc
-import warnings 
-warnings.filterwarnings('ignore')
+import warnings
+import json
+
+warnings.filterwarnings("ignore")
 
 if torch.cuda.is_available():
     device = torch.device("cuda")
 if not torch.cuda.is_available():
     device = torch.device("cpu")
-    if torch.backends.mps.is_available():
+    if torch.has_mps:
         device = torch.device("mps")
+print(device)
 seed = 42
 np.random.seed(seed)
 torch.manual_seed(seed)
@@ -47,14 +47,17 @@ model4_name = "cross-encoder/ms-marco-TinyBERT-L-2-v2"
 model5_name = "mrm8488/bert-tiny-finetuned-sms-spam-detection"
 
 MAX_LENGTH = 512
-BATCH_SIZE = 384
+BATCH_SIZE = 16
+EPOCHS = 3
+LR = 1e-5
 """
 Read in dataset here
 """
 directory = Path(__file__).parent.absolute()
-train = pd.read_csv(directory/"data_example/train.csv")
-val = pd.read_csv(directory/"data_example/val.csv")
-test = pd.read_csv(directory/"data_example/test.csv")
+print(directory)
+train = pd.read_csv(directory / "data_example/train.csv")
+val = pd.read_csv(directory / "data_example/val.csv")
+test = pd.read_csv(directory / "data_example/test.csv")
 sequence_col = "content"
 label_col = "category"
 NUM_CLASSES = train[label_col].nunique()
@@ -115,84 +118,164 @@ class Multiclass(CustomDataset):
         return {
             "input_ids": encoding["input_ids"].flatten(),
             "attention_mask": encoding["attention_mask"].flatten(),
-            "labels": label,
+            "labels": label.flatten(),
         }
+
+
 train_seq_list = train[sequence_col].tolist()
 train_label_list = train[label_col].tolist()
-train_label_list = [torch.tensor(label, dtype=torch.float32) for label in train_label_list]
-train_label_list = [torch.nn.functional.one_hot(torch.tensor(label, dtype=torch.int64), NUM_CLASSES).to(
-    torch.float
-) for label in train_label_list]
+train_label_list = [
+    torch.tensor(label, dtype=torch.float32) for label in train_label_list
+]
+train_label_list = [
+    torch.nn.functional.one_hot(torch.tensor(label, dtype=torch.int64), NUM_CLASSES).to(
+        torch.float
+    )
+    for label in train_label_list
+]
 val_seq_list = val[sequence_col].tolist()
 val_label_list = val[label_col].tolist()
 val_label_list = [torch.tensor(label, dtype=torch.float32) for label in val_label_list]
-val_label_list = [torch.nn.functional.one_hot(torch.tensor(label, dtype=torch.int64), NUM_CLASSES).to(
-    torch.float
-) for label in val_label_list]
+val_label_list = [
+    torch.nn.functional.one_hot(torch.tensor(label, dtype=torch.int64), NUM_CLASSES).to(
+        torch.float
+    )
+    for label in val_label_list
+]
 test_seq_list = test[sequence_col].tolist()
 test_label_list = test[label_col].tolist()
-test_label_list = [torch.tensor(label, dtype=torch.float32).to(
-    torch.float
-) for label in test_label_list]
-test_label_list = [torch.nn.functional.one_hot(torch.tensor(label, dtype=torch.int64), NUM_CLASSES)for label in test_label_list]
+test_label_list = [
+    torch.tensor(label, dtype=torch.float32).to(torch.float)
+    for label in test_label_list
+]
+test_label_list = [
+    torch.nn.functional.one_hot(torch.tensor(label, dtype=torch.int64), NUM_CLASSES)
+    for label in test_label_list
+]
 
 
-
-train_dataset = Multiclass(sequence_list=train_seq_list, label_list=train_label_list, tokenizer=AutoTokenizer.from_pretrained(model1_name), max_len=MAX_LENGTH, num_of_classes=NUM_CLASSES)
-val_dataset = Multiclass(sequence_list=val_seq_list, label_list=val_label_list, tokenizer=AutoTokenizer.from_pretrained(model1_name), max_len=MAX_LENGTH, num_of_classes=NUM_CLASSES)
-test_dataset = Multiclass(sequence_list=test_seq_list, label_list=test_label_list, tokenizer=AutoTokenizer.from_pretrained(model1_name), max_len=MAX_LENGTH, num_of_classes=NUM_CLASSES)
+train_dataset = Multiclass(
+    sequence_list=train_seq_list,
+    label_list=train_label_list,
+    tokenizer=AutoTokenizer.from_pretrained(model1_name),
+    max_len=MAX_LENGTH,
+    num_of_classes=NUM_CLASSES,
+)
+val_dataset = Multiclass(
+    sequence_list=val_seq_list,
+    label_list=val_label_list,
+    tokenizer=AutoTokenizer.from_pretrained(model1_name),
+    max_len=MAX_LENGTH,
+    num_of_classes=NUM_CLASSES,
+)
+test_dataset = Multiclass(
+    sequence_list=test_seq_list,
+    label_list=test_label_list,
+    tokenizer=AutoTokenizer.from_pretrained(model1_name),
+    max_len=MAX_LENGTH,
+    num_of_classes=NUM_CLASSES,
+)
 
 ## Metrics
 
+
 def compute_metrics(eval_preds):
-    metric = load_metric('f1','accuracy')
+    metric = load_metric("accuracy")
     logits, labels = eval_preds
     predictions = np.argmax(logits, axis=-1)
     labels_argmax = np.argmax(labels, axis=-1)
-    results = metric.compute(predictions=predictions, references=labels_argmax, average='macro')
-    print(results)
+    results = metric.compute(
+        predictions=predictions, references=labels_argmax
+    )
     return results
 
 
 ## Model 1
 print("Model 1")
-model_1_tokenizer = AutoTokenizer.from_pretrained(model1_name)
-model_1 = AutoModelForSequenceClassification.from_pretrained(model1_name, num_labels=NUM_CLASSES,ignore_mismatched_sizes=True)
-model_1_collator = DataCollatorWithPadding(tokenizer=model_1_tokenizer)
 
+model_1_tokenizer = AutoTokenizer.from_pretrained(model1_name, use_fast=True)
+# model_1_config = AutoConfig.from_pretrained(model1_name, num_labels=NUM_CLASSES,ignore_mismatched_sizes=True, finetuning_task="multiclass")
+model_1 = AutoModelForSequenceClassification.from_pretrained(
+    model1_name,
+    num_labels=NUM_CLASSES,
+    ignore_mismatched_sizes=True,
+    
+)
+
+
+
+model_1_collator = DataCollatorWithPadding(tokenizer=model_1_tokenizer, padding=True,max_length=MAX_LENGTH)
+model_1_dir = directory / "model_1"
 training_args = TrainingArguments(
-    output_dir="./results_binary",
-    learning_rate=2e-5,
+    output_dir=model_1_dir,
+    learning_rate=LR,
     per_device_train_batch_size=BATCH_SIZE,
     per_device_eval_batch_size=BATCH_SIZE,
-    # gradient_accumulation_steps=1,
-    # eval_accumulation_steps=1,
-    num_train_epochs=2,
+    overwrite_output_dir=True,
+    num_train_epochs=EPOCHS,
     weight_decay=0.01,
     seed=seed,
 )
-model1_trainer = Trainer(
+model_1_trainer = Trainer(
     model=model_1,
     args=training_args,
     train_dataset=train_dataset,
     eval_dataset=val_dataset,
     tokenizer=model_1_tokenizer,
     data_collator=model_1_collator,
-    compute_metrics=compute_metrics,
+    compute_metrics=compute_metrics,save_strategy="steps",save_steps=1000,evaluation_strategy="steps",eval_steps=1000
+    
 )
 print("Training Model 1")
-model1_trainer.train()
-model1_trainer.save_model(directory / 'results_binary/' + 'model_1')
-model1_results = model1_trainer.evaluate()
+model_1_trainer.train()
+model_1_trainer.save_model(model_1_dir / "saved_model")
+model_1_results = model_1_trainer.evaluate()
 
-with open(directory / 'results_binary/model_1/model1_results.txt', 'w') as f:
-    print(model1_results, file=f)
+with open(model_1_dir / "results.json", "w") as f:
+    json.dump(model_1_results, f)
 
-del model1_trainer
+del model_1_trainer, model_1, model_1_tokenizer, model_1_collator, model_1_dir, training_args, model_1_results
 gc.collect()
 torch.cuda.empty_cache()
+## Model 2
+model_2_tokenizer = AutoTokenizer.from_pretrained(model2_name)
+model_2 = AutoModelForSequenceClassification.from_pretrained(
+    model2_name,
+    num_labels=NUM_CLASSES,
+    ignore_mismatched_sizes=True,
     
+)
+model_2_collator = DataCollatorWithPadding(tokenizer=model_2_tokenizer, padding=True,max_length=MAX_LENGTH)
+model_2_dir = directory / "model_2"
+training_args = TrainingArguments(
+    output_dir=model_2_dir,
+    per_device_train_batch_size=BATCH_SIZE,
+    per_device_eval_batch_size=BATCH_SIZE,
+    overwrite_output_dir=True,
+    learning_rate=LR,
+    num_train_epochs=EPOCHS,
+    weight_decay=0.01,
+    seed=seed,
+)
+model_2_trainer = Trainer(
+    model=model_2,
+    args=training_args,
+    train_dataset=train_dataset,
+    eval_dataset=val_dataset,
+    tokenizer=model_2_tokenizer,
+    data_collator=model_2_collator,
+    compute_metrics=compute_metrics,
     
+)
+model_2_trainer.train()
+model_2_trainer.save_model(model_2_dir / "saved_model")
+model_2_results = model_2_trainer.evaluate()
+
+with open(model_2_dir / "results.json", "w") as f:
+    json.dump(model_2_results, f)
+
+del model_2_trainer, model_2, model_2_tokenizer, model_2_collator, model_2_dir, training_args, model_2_results
+
 # class MultiLabel(CustomDataset):
 #     def __init__(
 #         self,
@@ -240,7 +323,3 @@ torch.cuda.empty_cache()
 """ 
 Manipulate the head of the model according to the kind of task
 """
-
-model1_tokenizer = AutoTokenizer.from_pretrained(model1_name)
-model1 = AutoModelForSequenceClassification.from_pretrained(model1_name, num_labels=NUM_CLASSES, ignore_mismatched_sizes=True)
-print(f'\n\n{model1_name} number of parameters:', model1.num_parameters())
