@@ -27,7 +27,7 @@ for EC2:
 `Alexis-Labadie Kaldany`
 `akaldany@gwu.edu`
 
-ssh -i /Users/alexiskaldany/Personal/nlp_key.pem ec2-3-95-222-153.compute-1.amazonaws.com
+ssh -i /Users/alexiskaldany/Personal/nlp_key.pem ubuntu@ec2-3-82-229-72.compute-1.amazonaws.com
 
 ----------------
 ## Midterm

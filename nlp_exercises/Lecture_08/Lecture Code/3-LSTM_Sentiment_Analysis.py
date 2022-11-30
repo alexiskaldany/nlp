@@ -117,8 +117,6 @@ def evaluate(model, iterator, criterion):
     return epoch_loss / len(iterator), epoch_acc / len(iterator)
 
 
-
-
 for epoch in range(N_EPOCHS):
     start_time = time.time()
     train_loss, train_acc = train(model, train_iterator, optimizer, criterion)
