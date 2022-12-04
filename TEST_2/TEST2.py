@@ -13,7 +13,7 @@ from datasets import load_metric
 import numpy as np
 import pandas as pd
 from pathlib import Path
-from typing import List, Dict, Union
+from typing import Dict, List, Optional, Union
 import gc
 import warnings
 import json
@@ -31,19 +31,13 @@ seed = 42
 np.random.seed(seed)
 torch.manual_seed(seed)
 random.seed(seed)
-# covid = pd.read_csv("/Users/alexiskaldany/school/nlp/TEST_2/covid_articles_raw.csv")[:1000]
-# train = covid.sample(frac=0.8, random_state=0)
-# train.to_csv("/Users/alexiskaldany/school/nlp/TEST_2/data_example/train.csv")
-# val = covid.drop(train.index).sample(frac=0.5, random_state=0)
-# val.to_csv("/Users/alexiskaldany/school/nlp/TEST_2/data_example/val.csv")
-# test = covid.drop(train.index).drop(val.index)
-# test.to_csv("/Users/alexiskaldany/school/nlp/TEST_2/data_example/test.csv")
+
 
 model1_name = "howey/electra-small-mnli"
 model2_name = "monologg/koelectra-small-finetuned-nsmc"
-model3_name = "cross-encoder/ms-marco-MiniLM-L-2-v2"
-model4_name = "cross-encoder/ms-marco-TinyBERT-L-2-v2"
-model5_name = "mrm8488/bert-tiny-finetuned-sms-spam-detection"
+# model3_name = "cross-encoder/ms-marco-MiniLM-L-2-v2"
+# model4_name = "cross-encoder/ms-marco-TinyBERT-L-2-v2"
+# model5_name = "mrm8488/bert-tiny-finetuned-sms-spam-detection"
 
 MAX_LENGTH = 512
 BATCH_SIZE = 16
@@ -54,15 +48,15 @@ Read in dataset here
 """
 directory = Path(__file__).parent.absolute()
 print(directory)
-train = pd.read_csv(directory / "data_example/train.csv")
-val = pd.read_csv(directory / "data_example/val.csv")
-test = pd.read_csv(directory / "data_example/test.csv")
+train = pd.read_csv(directory / "data/train.csv")
+# val = pd.read_csv(directory / "data_example/val.csv")
+test = pd.read_csv(directory / "data/test.csv")
 sequence_col = "content"
 label_col = "category"
 NUM_CLASSES = train[label_col].nunique()
 LABEL_TO_ID = {label: int(i) for i, label in enumerate(train[label_col].unique())}
 train[label_col] = train[label_col].map(LABEL_TO_ID)
-val[label_col] = val[label_col].map(LABEL_TO_ID)
+# val[label_col] = val[label_col].map(LABEL_TO_ID)
 test[label_col] = test[label_col].map(LABEL_TO_ID)
 
 
@@ -133,15 +127,15 @@ train_label_list = [
     for label in train_label_list
 ]
 
-val_seq_list = val[sequence_col].tolist()
-val_label_list = val[label_col].tolist()
-val_label_list = [torch.tensor(label, dtype=torch.float32) for label in val_label_list]
-val_label_list = [
-    torch.nn.functional.one_hot(torch.tensor(label, dtype=torch.int64), NUM_CLASSES).to(
-        torch.float
-    )
-    for label in val_label_list
-]
+# val_seq_list = val[sequence_col].tolist()
+# val_label_list = val[label_col].tolist()
+# val_label_list = [torch.tensor(label, dtype=torch.float32) for label in val_label_list]
+# val_label_list = [
+#     torch.nn.functional.one_hot(torch.tensor(label, dtype=torch.int64), NUM_CLASSES).to(
+#         torch.float
+#     )
+#     for label in val_label_list
+# ]
 
 test_seq_list = test[sequence_col].tolist()
 test_label_list = test[label_col].tolist()
@@ -161,13 +155,13 @@ train_dataset = Multiclass(
     max_len=MAX_LENGTH,
     num_of_classes=NUM_CLASSES,
 )
-val_dataset = Multiclass(
-    sequence_list=val_seq_list,
-    label_list=val_label_list,
-    tokenizer=AutoTokenizer.from_pretrained(model1_name),
-    max_len=MAX_LENGTH,
-    num_of_classes=NUM_CLASSES,
-)
+# val_dataset = Multiclass(
+#     sequence_list=val_seq_list,
+#     label_list=val_label_list,
+#     tokenizer=AutoTokenizer.from_pretrained(model1_name),
+#     max_len=MAX_LENGTH,
+#     num_of_classes=NUM_CLASSES,
+# )
 
 test_dataset = Multiclass(
     sequence_list=test_seq_list,
@@ -221,13 +215,10 @@ model_1_trainer = Trainer(
     model=model_1,
     args=training_args,
     train_dataset=train_dataset,
-    eval_dataset=val_dataset,
+    eval_dataset=test_dataset,
     tokenizer=model_1_tokenizer,
     data_collator=model_1_collator,
     compute_metrics=compute_metrics,
-    save_steps=1000,
-    evaluation_strategy="steps",
-    eval_steps=1000,
 )
 print("Training Model 1")
 model_1_trainer.train()
