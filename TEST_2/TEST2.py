@@ -106,7 +106,7 @@ class Multiclass(CustomDataset):
     def __getitem__(self, index):
         sequence = self.sequence_list[index]
         label = self.label_list[index]  # TODO labels are tricky
-        encoding = self.tokenizer.encode_plus(
+        encoding = self.tokenizer(
             sequence,
             add_special_tokens=True,
             max_length=self.max_len,
@@ -215,6 +215,7 @@ training_args = TrainingArguments(
     num_train_epochs=EPOCHS,
     weight_decay=0.01,
     seed=seed,
+    save_strategy="steps",
 )
 model_1_trainer = Trainer(
     model=model_1,
@@ -224,7 +225,6 @@ model_1_trainer = Trainer(
     tokenizer=model_1_tokenizer,
     data_collator=model_1_collator,
     compute_metrics=compute_metrics,
-    save_strategy="steps",
     save_steps=1000,
     evaluation_strategy="steps",
     eval_steps=1000,
