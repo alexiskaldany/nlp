@@ -37,7 +37,7 @@ Create code for SVD/Last lecture stuff
 Write guide for nltk
 Write guide for spaCy
 
-ssh -i /Users/alexiskaldany/Personal/nlp_key.pem root@ec2-34-207-123-132.compute-1.amazonaws.com
+ssh -i /Users/alexiskaldany/Personal/nlp_key.pem ubuntu@ec2-34-207-123-132.compute-1.amazonaws.com
 
 scp -i /Users/alexiskaldany/Personal/nlp_key.pem /Users/alexiskaldany/school/nlp22_final/covid_articles_raw.csv ubuntu@ec2-3-95-222-153.compute-1.amazonaws.com:/home/ubuntu/nlp22_final
 

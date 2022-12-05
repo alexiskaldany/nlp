@@ -1,0 +1,1499 @@
+Unnamed: 0,ID,TITLE,ABSTRACT,Computer Science,Physics,Mathematics,Statistics,Quantitative Biology,Quantitative Finance
+17910,17911,The Statistical Recurrent Unit,"  Sophisticated gated recurrent neural network architectures like LSTMs and
+GRUs have been shown to be highly effective in a myriad of applications. We
+develop an un-gated unit, the statistical recurrent unit (SRU), that is able to
+learn long term dependencies in data by only keeping moving averages of
+statistics. The SRU's architecture is simple, un-gated, and contains a
+comparable number of parameters to LSTMs; yet, SRUs perform favorably to more
+sophisticated LSTM and GRU alternatives, often outperforming one or both in
+various tasks. We show the efficacy of SRUs as compared to LSTMs and GRUs in an
+unbiased manner by optimizing respective architectures' hyperparameters in a
+Bayesian optimization scheme for both synthetic and real-world tasks.
+",0,0,1,0,0,0
+3892,3893,Stochastic population dynamics in spatially extended predator-prey systems,"  Spatially extended population dynamics models that incorporate intrinsic
+noise serve as case studies for the role of fluctuations and correlations in
+biological systems. Including spatial structure and stochastic noise in
+predator-prey competition invalidates the deterministic Lotka-Volterra picture
+of neutral population cycles. Stochastic models yield long-lived erratic
+population oscillations stemming from a resonant amplification mechanism. In
+spatially extended predator-prey systems, one observes noise-stabilized
+activity and persistent correlations. Fluctuation-induced renormalizations of
+the oscillation parameters can be analyzed perturbatively. The critical
+dynamics and the non-equilibrium relaxation kinetics at the predator extinction
+threshold are characterized by the directed percolation universality class.
+Spatial or environmental variability results in more localized patches which
+enhances both species densities. Affixing variable rates to individual
+particles and allowing for trait inheritance subject to mutations induces fast
+evolutionary dynamics for the rate distributions. Stochastic spatial variants
+of cyclic competition with rock-paper-scissors interactions illustrate
+connections between population dynamics and evolutionary game theory, and
+demonstrate how space can help maintain diversity. In two dimensions,
+three-species cyclic competition models of the May-Leonard type are
+characterized by the emergence of spiral patterns whose properties are
+elucidated by a mapping onto a complex Ginzburg-Landau equation. Extensions to
+general food networks can be classified on the mean-field level, which provides
+both a fundamental understanding of ensuing cooperativity and emergence of
+alliances. Novel space-time patterns emerge as a result of the formation of
+competing alliances, such as coarsening domains that each incorporate
+rock-paper-scissors competition games.
+",1,0,0,0,0,0
+11720,11721,Merlin-Arthur with efficient quantum Merlin and quantum supremacy for the second level of the Fourier hierarchy,"  We introduce a simple sub-universal quantum computing model, which we call
+the Hadamard-classical circuit with one-qubit (HC1Q) model. It consists of a
+classical reversible circuit sandwiched by two layers of Hadamard gates, and
+therefore it is in the second level of the Fourier hierarchy. We show that
+output probability distributions of the HC1Q model cannot be classically
+efficiently sampled within a multiplicative error unless the polynomial-time
+hierarchy collapses to the second level. The proof technique is different from
+those used for previous sub-universal models, such as IQP, Boson Sampling, and
+DQC1, and therefore the technique itself might be useful for finding other
+sub-universal models that are hard to classically simulate. We also study the
+classical verification of quantum computing in the second level of the Fourier
+hierarchy. To this end, we define a promise problem, which we call the
+probability distribution distinguishability with maximum norm (PDD-Max). It is
+a promise problem to decide whether output probability distributions of two
+quantum circuits are far apart or close. We show that PDD-Max is BQP-complete,
+but if the two circuits are restricted to some types in the second level of the
+Fourier hierarchy, such as the HC1Q model or the IQP model, PDD-Max has a
+Merlin-Arthur system with quantum polynomial-time Merlin and classical
+probabilistic polynomial-time Arthur.
+",1,0,1,0,0,0
+6172,6173,Distribution of the periodic points of the Farey map,"  We expand the cross section of the geodesic flow in the tangent bundle of the
+modular surface given by Series to produce another section whose return map
+under the geodesic flow is a double cover of the natural extension of the Farey
+map. We use this cross section to extend the correspondence between the closed
+geodesics on the modular surface and the periodic points of the Gauss map to
+include the periodic points of the Farey map. Then, analogous to the work of
+Pollicott, we prove an equidistribution result for the periodic points of the
+Farey map when they are ordered according to the length of their corresponding
+closed geodesics.
+",1,0,0,0,0,0
+8155,8156,Learning model-based planning from scratch,"  Conventional wisdom holds that model-based planning is a powerful approach to
+sequential decision-making. It is often very challenging in practice, however,
+because while a model can be used to evaluate a plan, it does not prescribe how
+to construct a plan. Here we introduce the ""Imagination-based Planner"", the
+first model-based, sequential decision-making agent that can learn to
+construct, evaluate, and execute plans. Before any action, it can perform a
+variable number of imagination steps, which involve proposing an imagined
+action and evaluating it with its model-based imagination. All imagined actions
+and outcomes are aggregated, iteratively, into a ""plan context"" which
+conditions future real and imagined actions. The agent can even decide how to
+imagine: testing out alternative imagined actions, chaining sequences of
+actions together, or building a more complex ""imagination tree"" by navigating
+flexibly among the previously imagined states using a learned policy. And our
+agent can learn to plan economically, jointly optimizing for external rewards
+and computational costs associated with using its imagination. We show that our
+architecture can learn to solve a challenging continuous control problem, and
+also learn elaborate planning strategies in a discrete maze-solving task. Our
+work opens a new direction toward learning the components of a model-based
+planning system and how to use them.
+",0,0,1,0,0,0
+2957,2958,Photographic dataset: playing cards,"  This is a photographic dataset collected for testing image processing
+algorithms. The idea is to have images that can exploit the properties of total
+variation, therefore a set of playing cards was distributed on the scene. The
+dataset is made available at www.fips.fi/photographic_dataset2.php
+",1,0,0,0,0,0
+6820,6821,A critical analysis of resampling strategies for the regularized particle filter,"  We analyze the performance of different resampling strategies for the
+regularized particle filter regarding parameter estimation. We show in
+particular, building on analytical insight obtained in the linear Gaussian
+case, that resampling systematically can prevent the filtered density from
+converging towards the true posterior distribution. We discuss several means to
+overcome this limitation, including kernel bandwidth modulation, and provide
+evidence that the resulting particle filter clearly outperforms traditional
+bootstrap particle filters. Our results are supported by numerical simulations
+on a linear textbook example, the logistic map and a non-linear plant growth
+model.
+",1,0,0,0,0,0
+4925,4926,Second order necessary and sufficient optimality conditions for singular solutions of partially-affine control problems,"  In this article we study optimal control problems for systems that are affine
+with respect to some of the control variables and nonlinear in relation to the
+others. We consider finitely many equality and inequality constraints on the
+initial and final values of the state. We investigate singular optimal
+solutions for this class of problems, for which we obtain second order
+necessary and sufficient conditions for weak optimality in integral form. We
+also derive Goh pointwise necessary optimality conditions. We show an example
+to illustrate the results.
+",1,0,0,0,0,0
+735,736,Mixing of odd- and even-frequency pairings in strongly correlated electron systems under magnetic field,"  Even- and odd-frequency superconductivity coexist due to broken time-reversal
+symmetry under magnetic field. In order to describe this mixing, we extend the
+linearized Eliashberg equation for the spin and charge fluctuation mechanism in
+strongly correlated electron systems. We apply this extended Eliashberg
+equation to the odd-frequency superconductivity on a quasi-one-dimensional
+isosceles triangular lattice under in-plane magnetic field and examine the
+effect of the even-frequency component.
+",1,1,0,0,0,0
+3130,3131,New goodness-of-fit diagnostics for conditional discrete response models,"  This paper proposes new specification tests for conditional models with
+discrete responses, which are key to apply efficient maximum likelihood
+methods, to obtain consistent estimates of partial effects and to get
+appropriate predictions of the probability of future events. In particular, we
+test the static and dynamic ordered choice model specifications and can cover
+infinite support distributions for e.g. count data. The traditional approach
+for specification testing of discrete response models is based on probability
+integral transforms of a jittered discrete data which leads to continuous
+uniform iid series under the true conditional distribution. Then, standard
+specification testing techniques for continuous variables could be applied to
+the transformed series, but the extra randomness from jitters affects the power
+properties of these methods. We investigate in this paper an alternative
+transformation based only on original discrete data that avoids any
+randomization. We analyze the asymptotic properties of goodness-of-fit tests
+based on this new transformation and explore the properties in finite samples
+of a bootstrap algorithm to approximate the critical values of test statistics
+which are model and parameter dependent. We show analytically and in
+simulations that our approach dominates the methods based on randomization in
+terms of power. We apply the new tests to models of the monetary policy
+conducted by the Federal Reserve.
+",1,1,1,0,0,0
+5359,5360,Geometric clustering in normed planes,"  Given two sets of points $A$ and $B$ in a normed plane, we prove that there
+are two linearly separable sets $A'$ and $B'$ such that $\mathrm{diam}(A')\leq
+\mathrm{diam}(A)$, $\mathrm{diam}(B')\leq \mathrm{diam}(B)$, and $A'\cup
+B'=A\cup B.$ This extends a result for the Euclidean distance to symmetric
+convex distance functions. As a consequence, some Euclidean $k$-clustering
+algorithms are adapted to normed planes, for instance, those that minimize the
+maximum, the sum, or the sum of squares of the $k$ cluster diameters. The
+2-clustering problem when two different bounds are imposed to the diameters is
+also solved. The Hershberger-Suri's data structure for managing ball hulls can
+be useful in this context.
+",1,0,0,0,0,0
+2419,2420,Universal Protocols for Information Dissemination Using Emergent Signals,"  We consider a population of $n$ agents which communicate with each other in a
+decentralized manner, through random pairwise interactions. One or more agents
+in the population may act as authoritative sources of information, and the
+objective of the remaining agents is to obtain information from or about these
+source agents. We study two basic tasks: broadcasting, in which the agents are
+to learn the bit-state of an authoritative source which is present in the
+population, and source detection, in which the agents are required to decide if
+at least one source agent is present in the population or not.We focus on
+designing protocols which meet two natural conditions: (1) universality, i.e.,
+independence of population size, and (2) rapid convergence to a correct global
+state after a reconfiguration, such as a change in the state of a source agent.
+Our main positive result is to show that both of these constraints can be met.
+For both the broadcasting problem and the source detection problem, we obtain
+solutions with a convergence time of $O(\log^2 n)$ rounds, w.h.p., from any
+starting configuration. The solution to broadcasting is exact, which means that
+all agents reach the state broadcast by the source, while the solution to
+source detection admits one-sided error on a $\varepsilon$-fraction of the
+population (which is unavoidable for this problem). Both protocols are easy to
+implement in practice and have a compact formulation.Our protocols exploit the
+properties of self-organizing oscillatory dynamics. On the hardness side, our
+main structural insight is to prove that any protocol which meets the
+constraints of universality and of rapid convergence after reconfiguration must
+display a form of non-stationary behavior (of which oscillatory dynamics are an
+example). We also observe that the periodicity of the oscillatory behavior of
+the protocol, when present, must necessarily depend on the number $^\\# X$ of
+source agents present in the population. For instance, our protocols inherently
+rely on the emergence of a signal passing through the population, whose period
+is $\Theta(\log \frac{n}{^\\# X})$ rounds for most starting configurations. The
+design of clocks with tunable frequency may be of independent interest, notably
+in modeling biological networks.
+",1,0,0,0,0,0
+10534,10535,A Constrained Coupled Matrix-Tensor Factorization for Learning Time-evolving and Emerging Topics,"  Topic discovery has witnessed a significant growth as a field of data mining
+at large. In particular, time-evolving topic discovery, where the evolution of
+a topic is taken into account has been instrumental in understanding the
+historical context of an emerging topic in a dynamic corpus. Traditionally,
+time-evolving topic discovery has focused on this notion of time. However,
+especially in settings where content is contributed by a community or a crowd,
+an orthogonal notion of time is the one that pertains to the level of expertise
+of the content creator: the more experienced the creator, the more advanced the
+topic. In this paper, we propose a novel time-evolving topic discovery method
+which, in addition to the extracted topics, is able to identify the evolution
+of that topic over time, as well as the level of difficulty of that topic, as
+it is inferred by the level of expertise of its main contributors. Our method
+is based on a novel formulation of Constrained Coupled Matrix-Tensor
+Factorization, which adopts constraints well-motivated for, and, as we
+demonstrate, are essential for high-quality topic discovery. We qualitatively
+evaluate our approach using real data from the Physics and also Programming
+Stack Exchange forum, and we were able to identify topics of varying levels of
+difficulty which can be linked to external events, such as the announcement of
+gravitational waves by the LIGO lab in Physics forum. We provide a quantitative
+evaluation of our method by conducting a user study where experts were asked to
+judge the coherence and quality of the extracted topics. Finally, our proposed
+method has implications for automatic curriculum design using the extracted
+topics, where the notion of the level of difficulty is necessary for the proper
+modeling of prerequisites and advanced concepts.
+",0,0,1,0,0,0
+9103,9104,Achieving Privacy in the Adversarial Multi-Armed Bandit,"  In this paper, we improve the previously best known regret bound to achieve
+$\epsilon$-differential privacy in oblivious adversarial bandits from
+$\mathcal{O}{(T^{2/3}/\epsilon)}$ to $\mathcal{O}{(\sqrt{T} \ln T /\epsilon)}$.
+This is achieved by combining a Laplace Mechanism with EXP3. We show that
+though EXP3 is already differentially private, it leaks a linear amount of
+information in $T$. However, we can improve this privacy by relying on its
+intrinsic exponential mechanism for selecting actions. This allows us to reach
+$\mathcal{O}{(\sqrt{\ln T})}$-DP, with a regret of $\mathcal{O}{(T^{2/3})}$
+that holds against an adaptive adversary, an improvement from the best known of
+$\mathcal{O}{(T^{3/4})}$. This is done by using an algorithm that run EXP3 in a
+mini-batch loop. Finally, we run experiments that clearly demonstrate the
+validity of our theoretical analysis.
+",1,0,0,0,0,0
+19014,19015,Hyperfield Grassmannians,"  In a recent paper Baker and Bowler introduced matroids over hyperfields,
+offering a common generalization of matroids, oriented matroids, and linear
+subspaces of based vector spaces. This paper introduces the notion of a
+topological hyperfield and explores the generalization of Grassmannians and
+realization spaces to this context, particularly in relating the (hyper)fields
+R and C to hyperfields arising in matroid theory and in tropical geometry.
+",1,1,0,0,0,0
+5363,5364,Dropping Convexity for More Efficient and Scalable Online Multiview Learning,"  Multiview representation learning is very popular for latent factor analysis.
+It naturally arises in many data analysis, machine learning, and information
+retrieval applications to model dependent structures among multiple data
+sources. For computational convenience, existing approaches usually formulate
+the multiview representation learning as convex optimization problems, where
+global optima can be obtained by certain algorithms in polynomial time.
+However, many pieces of evidence have corroborated that heuristic nonconvex
+approaches also have good empirical computational performance and convergence
+to the global optima, although there is a lack of theoretical justification.
+Such a gap between theory and practice motivates us to study a nonconvex
+formulation for multiview representation learning, which can be efficiently
+solved by a simple stochastic gradient descent (SGD) algorithm. We first
+illustrate the geometry of the nonconvex formulation; Then, we establish
+asymptotic global rates of convergence to the global optima by diffusion
+approximations. Numerical experiments are provided to support our theory.
+",1,0,0,0,0,0
+460,461,Kinetic modelling of competition and depletion of shared miRNAs by competing endogenous RNAs,"  Non-conding RNAs play a key role in the post-transcriptional regulation of
+mRNA translation and turnover in eukaryotes. miRNAs, in particular, interact
+with their target RNAs through protein-mediated, sequence-specific binding,
+giving rise to extended and highly heterogeneous miRNA-RNA interaction
+networks. Within such networks, competition to bind miRNAs can generate an
+effective positive coupling between their targets. Competing endogenous RNAs
+(ceRNAs) can in turn regulate each other through miRNA-mediated crosstalk.
+Albeit potentially weak, ceRNA interactions can occur both dynamically,
+affecting e.g. the regulatory clock, and at stationarity, in which case ceRNA
+networks as a whole can be implicated in the composition of the cell's
+proteome. Many features of ceRNA interactions, including the conditions under
+which they become significant, can be unraveled by mathematical and in silico
+models. We review the understanding of the ceRNA effect obtained within such
+frameworks, focusing on the methods employed to quantify it, its role in the
+processing of gene expression noise, and how network topology can determine its
+reach.
+",1,1,0,0,0,0
+18038,18039,"Fast, Robust, and Versatile Event Detection through HMM Belief State Gradient Measures","  Event detection is a critical feature in data-driven systems as it assists
+with the identification of nominal and anomalous behavior. Event detection is
+increasingly relevant in robotics as robots operate with greater autonomy in
+increasingly unstructured environments. In this work, we present an accurate,
+robust, fast, and versatile measure for skill and anomaly identification. A
+theoretical proof establishes the link between the derivative of the
+log-likelihood of the HMM filtered belief state and the latest emission
+probabilities. The key insight is the inverse relationship in which gradient
+analysis is used for skill and anomaly identification. Our measure showed
+better performance across all metrics than related state-of-the art works. The
+result is broadly applicable to domains that use HMMs for event detection.
+",1,0,0,0,0,0
+10392,10393,Self-supervised Deep Reinforcement Learning with Generalized Computation Graphs for Robot Navigation,"  Enabling robots to autonomously navigate complex environments is essential
+for real-world deployment. Prior methods approach this problem by having the
+robot maintain an internal map of the world, and then use a localization and
+planning method to navigate through the internal map. However, these approaches
+often include a variety of assumptions, are computationally intensive, and do
+not learn from failures. In contrast, learning-based methods improve as the
+robot acts in the environment, but are difficult to deploy in the real-world
+due to their high sample complexity. To address the need to learn complex
+policies with few samples, we propose a generalized computation graph that
+subsumes value-based model-free methods and model-based methods, with specific
+instantiations interpolating between model-free and model-based. We then
+instantiate this graph to form a navigation model that learns from raw images
+and is sample efficient. Our simulated car experiments explore the design
+decisions of our navigation model, and show our approach outperforms
+single-step and $N$-step double Q-learning. We also evaluate our approach on a
+real-world RC car and show it can learn to navigate through a complex indoor
+environment with a few hours of fully autonomous, self-supervised training.
+Videos of the experiments and code can be found at github.com/gkahn13/gcg
+",1,1,0,0,0,0
+11261,11262,Deriving Verb Predicates By Clustering Verbs with Arguments,"  Hand-built verb clusters such as the widely used Levin classes (Levin, 1993)
+have proved useful, but have limited coverage. Verb classes automatically
+induced from corpus data such as those from VerbKB (Wijaya, 2016), on the other
+hand, can give clusters with much larger coverage, and can be adapted to
+specific corpora such as Twitter. We present a method for clustering the
+outputs of VerbKB: verbs with their multiple argument types, e.g.
+""marry(person, person)"", ""feel(person, emotion)."" We make use of a novel
+low-dimensional embedding of verbs and their arguments to produce high quality
+clusters in which the same verb can be in different clusters depending on its
+argument type. The resulting verb clusters do a better job than hand-built
+clusters of predicting sarcasm, sentiment, and locus of control in tweets.
+",1,0,0,0,0,0
+2637,2638,On-the-fly Operation Batching in Dynamic Computation Graphs,"  Dynamic neural network toolkits such as PyTorch, DyNet, and Chainer offer
+more flexibility for implementing models that cope with data of varying
+dimensions and structure, relative to toolkits that operate on statically
+declared computations (e.g., TensorFlow, CNTK, and Theano). However, existing
+toolkits - both static and dynamic - require that the developer organize the
+computations into the batches necessary for exploiting high-performance
+algorithms and hardware. This batching task is generally difficult, but it
+becomes a major hurdle as architectures become complex. In this paper, we
+present an algorithm, and its implementation in the DyNet toolkit, for
+automatically batching operations. Developers simply write minibatch
+computations as aggregations of single instance computations, and the batching
+algorithm seamlessly executes them, on the fly, using computationally efficient
+batched operations. On a variety of tasks, we obtain throughput similar to that
+obtained with manual batches, as well as comparable speedups over
+single-instance learning on architectures that are impractical to batch
+manually.
+",1,0,0,0,0,0
+7062,7063,Photometric Redshifts for Hyper Suprime-Cam Subaru Strategic Program Data Release 1,"  Photometric redshifts are a key component of many science objectives in the
+Hyper Suprime-Cam Subaru Strategic Program (HSC-SSP). In this paper, we
+describe and compare the codes used to compute photometric redshifts for
+HSC-SSP, how we calibrate them, and the typical accuracy we achieve with the
+HSC five-band photometry (grizy). We introduce a new point estimator based on
+an improved loss function and demonstrate that it works better than other
+commonly used estimators. We find that our photo-z's are most accurate at
+0.2<~zphot<~1.5, where we can straddle the 4000A break. We achieve
+sigma(d_zphot/(1+zphot))~0.05 and an outlier rate of about 15% for galaxies
+down to i=25 within this redshift range. If we limit to a brighter sample of
+i<24, we achieve sigma~0.04 and ~8% outliers. Our photo-z's should thus enable
+many science cases for HSC-SSP. We also characterize the accuracy of our
+redshift probability distribution function (PDF) and discover that some codes
+over/under-estimate the redshift uncertainties, which have implications for
+N(z) reconstruction. Our photo-z products for the entire area in the Public
+Data Release 1 are publicly available, and both our catalog products (such as
+point estimates) and full PDFs can be retrieved from the data release site,
+this https URL.
+",1,0,1,0,0,0
+6687,6688,Deep Learning: A Bayesian Perspective,"  Deep learning is a form of machine learning for nonlinear high dimensional
+pattern matching and prediction. By taking a Bayesian probabilistic
+perspective, we provide a number of insights into more efficient algorithms for
+optimisation and hyper-parameter tuning. Traditional high-dimensional data
+reduction techniques, such as principal component analysis (PCA), partial least
+squares (PLS), reduced rank regression (RRR), projection pursuit regression
+(PPR) are all shown to be shallow learners. Their deep learning counterparts
+exploit multiple deep layers of data reduction which provide predictive
+performance gains. Stochastic gradient descent (SGD) training optimisation and
+Dropout (DO) regularization provide estimation and variable selection. Bayesian
+regularization is central to finding weights and connections in networks to
+optimize the predictive bias-variance trade-off. To illustrate our methodology,
+we provide an analysis of international bookings on Airbnb. Finally, we
+conclude with directions for future research.
+",1,1,1,0,0,0
+20647,20648,Nearly Maximally Predictive Features and Their Dimensions,"  Scientific explanation often requires inferring maximally predictive features
+from a given data set. Unfortunately, the collection of minimal maximally
+predictive features for most stochastic processes is uncountably infinite. In
+such cases, one compromises and instead seeks nearly maximally predictive
+features. Here, we derive upper-bounds on the rates at which the number and the
+coding cost of nearly maximally predictive features scales with desired
+predictive power. The rates are determined by the fractal dimensions of a
+process' mixed-state distribution. These results, in turn, show how widely-used
+finite-order Markov models can fail as predictors and that mixed-state
+predictive features offer a substantial improvement.
+",1,0,1,0,0,0
+10734,10735,A Kepler Study of Starspot Lifetimes with Respect to Light Curve Amplitude and Spectral Type,"  Wide-field high precision photometric surveys such as Kepler have produced
+reams of data suitable for investigating stellar magnetic activity of cooler
+stars. Starspot activity produces quasi-sinusoidal light curves whose phase and
+amplitude vary as active regions grow and decay over time. Here we investigate,
+firstly, whether there is a correlation between the size of starspots - assumed
+to be related to the amplitude of the sinusoid - and their decay timescale and,
+secondly, whether any such correlation depends on the stellar effective
+temperature. To determine this, we computed the autocorrelation functions of
+the light curves of samples of stars from Kepler and fitted them with apodised
+periodic functions. The light curve amplitudes, representing spot size were
+measured from the root-mean-squared scatter of the normalised light curves. We
+used a Monte Carlo Markov Chain to measure the periods and decay timescales of
+the light curves. The results show a correlation between the decay time of
+starspots and their inferred size. The decay time also depends strongly on the
+temperature of the star. Cooler stars have spots that last much longer, in
+particular for stars with longer rotational periods. This is consistent with
+current theories of diffusive mechanisms causing starspot decay. We also find
+that the Sun is not unusually quiet for its spectral type - stars with
+solar-type rotation periods and temperatures tend to have (comparatively)
+smaller starspots than stars with mid-G or later spectral types.
+",1,0,0,0,0,0
+14259,14260,The minus order and range additivity,"  We study the minus order on the algebra of bounded linear operators on a
+Hilbert space. By giving a characterization in terms of range additivity, we
+show that the intrinsic nature of the minus order is algebraic. Applications to
+generalized inverses of the sum of two operators, to systems of operator
+equations and to optimization problems are also presented.
+",1,0,0,0,0,0
+16669,16670,Analytic and Numerical Analysis of Singular Cauchy integrals with exponential-type weights,"  Let $I=(c,d)$, $c < 0 < d$, $Q\in C^1: I\rightarrow[0,\infty)$ be a function
+with given regularity behavior on $I$. Write $w:=\exp(-Q)$ on $I$ and assume
+that $\int_I x^nw^2(x)dx<\infty$ for all $n=0,1,2,\ldots$. For $x\in I$, we
+consider the problem of the analytic and numerical approximation of the Cauchy
+principal value integral: \begin{equation*} I[f;x]:=\lim_{\varepsilon \to 0+}
+\left( \int_{c}^{x-\varepsilon} w^2(t)\frac{f(t)}{t-x}dt+
+\int_{x+\varepsilon}^{d} w^2(t)\frac{f(t)}{t-x}dt. \right) \end{equation*} for
+a class of functions $f: I\rightarrow \mathbb{R^+}$ for which $I[f;x]$ is
+finite. In [1-4], the first two authors studied this problem and some of its
+applications for even exponential weights $w$ on $(-\infty,\infty)$ of smooth
+polynomial decay at $\pm \infty$ and given regularity.
+",1,1,0,0,0,0
+11269,11270,Conditions for the equivalence between IQC and graph separation stability results,"  This paper provides a link between time-domain and frequency-domain stability
+results in the literature. Specifically, we focus on the comparison between
+stability results for a feedback interconnection of two nonlinear systems
+stated in terms of frequency-domain conditions. While the Integral Quadratic
+Constrain (IQC) theorem can cope with them via a homotopy argument for the
+Lurye problem, graph separation results require the transformation of the
+frequency-domain conditions into truncated time-domain conditions. To date,
+much of the literature focuses on ""hard"" factorizations of the multiplier,
+considering only one of the two frequency-domain conditions. Here it is shown
+that a symmetric, ""doubly-hard"" factorization is required to convert both
+frequency-domain conditions into truncated time-domain conditions. By using the
+appropriate factorization, a novel comparison between the results obtained by
+IQC and separation theories is then provided. As a result, we identify under
+what conditions the IQC theorem may provide some advantage.
+",1,1,0,0,0,0
+4244,4245,A multiple timescales approach to bridging spiking- and population-level dynamics,"  A rigorous bridge between spiking-level and macroscopic quantities is an
+on-going and well-developed story for asynchronously firing neurons, but focus
+has shifted to include neural populations exhibiting varying synchronous
+dynamics. Recent literature has used the Ott--Antonsen ansatz (2008) to great
+effect, allowing a rigorous derivation of an order parameter for large
+oscillator populations. The ansatz has been successfully applied using several
+models including networks of Kuramoto oscillators, theta models, and
+integrate-and-fire neurons, along with many types of network topologies. In the
+present study, we take a converse approach: given the mean field dynamics of
+slow synapses, predict the synchronization properties of finite neural
+populations. The slow synapse assumption is amenable to averaging theory and
+the method of multiple timescales. Our proposed theory applies to two
+heterogeneous populations of N excitatory n-dimensional and N inhibitory
+m-dimensional oscillators with homogeneous synaptic weights. We then
+demonstrate our theory using two examples. In the first example we take a
+network of excitatory and inhibitory theta neurons and consider the case with
+and without heterogeneous inputs. In the second example we use Traub models
+with calcium for the excitatory neurons and Wang-Buzs{á}ki models for the
+inhibitory neurons. We accurately predict phase drift and phase locking in each
+example even when the slow synapses exhibit non-trivial mean-field dynamics.
+",1,0,0,0,0,0
+4773,4774,Least Squares Polynomial Chaos Expansion: A Review of Sampling Strategies,"  As non-institutive polynomial chaos expansion (PCE) techniques have gained
+growing popularity among researchers, we here provide a comprehensive review of
+major sampling strategies for the least squares based PCE. Traditional sampling
+methods, such as Monte Carlo, Latin hypercube, quasi-Monte Carlo, optimal
+design of experiments (ODE), Gaussian quadratures, as well as more recent
+techniques, such as coherence-optimal and randomized quadratures are discussed.
+We also propose a hybrid sampling method, dubbed alphabetic-coherence-optimal,
+that employs the so-called alphabetic optimality criteria used in the context
+of ODE in conjunction with coherence-optimal samples. A comparison between the
+empirical performance of the selected sampling methods applied to three
+numerical examples, including high-order PCE's, high-dimensional problems, and
+low oversampling ratios, is presented to provide a road map for practitioners
+seeking the most suitable sampling technique for a problem at hand. We observed
+that the alphabetic-coherence-optimal technique outperforms other sampling
+methods, specially when high-order ODE are employed and/or the oversampling
+ratio is low.
+",1,0,0,0,0,0
+19518,19519,Robust adaptive droop control for DC microgrids,"  There are tradeoffs between current sharing among distributed resources and
+DC bus voltage stability when conventional droop control is used in DC
+microgrids. As current sharing approaches the setpoint, bus voltage deviation
+increases. Previous studies have suggested using secondary control utilizing
+linear controllers to overcome drawbacks of droop control. However, linear
+control design depends on an accurate model of the system. The derivation of
+such a model is challenging because the noise and disturbances caused by the
+coupling between sources, loads, and switches in microgrids are
+under-represented. This under-representation makes linear modeling and control
+insufficient. Hence, in this paper, we propose a robust adaptive control to
+adjust droop characteristics to satisfy both current sharing and bus voltage
+stability. First, the time-varying models of DC microgrids are derived. Second,
+the improvements for the adaptive control method are presented. Third, the
+application of the enhanced adaptive method to DC microgrids is presented to
+satisfy the system objective. Fourth, simulation and experimental results on a
+microgrid show that the adaptive method precisely shares current between two
+distributed resources and maintains the nominal bus voltage. Last, the
+comparative study validates the effectiveness of the proposed method over the
+conventional method.
+",1,0,0,0,0,0
+10830,10831,Non-classification of free Araki-Woods factors and $τ$-invariants,"  We define the standard Borel space of free Araki-Woods factors and prove that
+their isomorphism relation is not classifiable by countable structures. We also
+prove that equality of $\tau$-topologies, arising as invariants of type III
+factors, as well as coycle and outer conjugacy of actions of abelian groups on
+free product factors are not classifiable by countable structures.
+",1,1,0,0,0,0
+4247,4248,Contextuality from missing and versioned data,"  Traditionally categorical data analysis (e.g. generalized linear models)
+works with simple, flat datasets akin to a single table in a database with no
+notion of missing data or conflicting versions. In contrast, modern data
+analysis must deal with distributed databases with many partial local tables
+that need not always agree. The computational agents tabulating these tables
+are spatially separated, with binding speed-of-light constraints and data
+arriving too rapidly for these distributed views ever to be fully informed and
+globally consistent. Contextuality is a mathematical property which describes a
+kind of inconsistency arising in quantum mechanics (e.g. in Bell's theorem). In
+this paper we show how contextuality can arise in common data collection
+scenarios, including missing data and versioning (as in low-latency distributed
+databases employing snapshot isolation). In the companion paper, we develop
+statistical models adapted to this regime.
+",1,1,0,0,0,0
+12676,12677,Impact of Feature Selection on Micro-Text Classification,"  Social media datasets, especially Twitter tweets, are popular in the field of
+text classification. Tweets are a valuable source of micro-text (sometimes
+referred to as ""micro-blogs""), and have been studied in domains such as
+sentiment analysis, recommendation systems, spam detection, clustering, among
+others. Tweets often include keywords referred to as ""Hashtags"" that can be
+used as labels for the tweet. Using tweets encompassing 50 labels, we studied
+the impact of word versus character-level feature selection and extraction on
+different learners to solve a multi-class classification task. We show that
+feature extraction of simple character-level groups performs better than simple
+word groups and pre-processing methods like normalizing using Porter's Stemming
+and Part-of-Speech (""POS"")-Lemmatization.
+",1,0,0,0,0,0
+5176,5177,Trapped imbalanced fermionic superfluids in one dimension: A variational approach,"  We propose and analyze a variational wave function for a
+population-imbalanced one-dimensional Fermi gas that allows for
+Fulde-Ferrell-Larkin-Ovchinnikov (FFLO) type pairing correlations among the two
+fermion species, while also accounting for the harmonic confining potential. In
+the strongly interacting regime, we find large spatial oscillations of the
+order parameter, indicative of an FFLO state. The obtained density profiles
+versus imbalance are consistent with recent experimental results as well as
+with theoretical calculations based on combining Bethe ansatz with the local
+density approximation. Although we find no signature of the FFLO state in the
+densities of the two fermion species, we show that the oscillations of the
+order parameter appear in density-density correlations, both in-situ and after
+free expansion. Furthermore, above a critical polarization, the value of which
+depends on the interaction, we find the unpaired Fermi-gas state to be
+energetically more favorable.
+",1,0,1,0,0,0
+6963,6964,A 3D MHD simulation of SN 1006: a polarized emission study for the turbulent case,"  Three dimensional magnetohydrodynamical simulations were carried out in order
+to perform a new polarization study of the radio emission of the supernova
+remnant SN 1006. These simulations consider that the remnant expands into a
+turbulent interstellar medium (including both magnetic field and density
+perturbations). Based on the referenced-polar angle technique, a statistical
+study was done on observational and numerical magnetic field position-angle
+distributions. Our results show that a turbulent medium with an adiabatic index
+of 1.3 can reproduce the polarization properties of the SN 1006 remnant. This
+statistical study reveals itself as a useful tool for obtaining the orientation
+of the ambient magnetic field, previous to be swept up by the main supernova
+remnant shock.
+",1,1,0,0,0,0
+7156,7157,Stacked Structure Learning for Lifted Relational Neural Networks,"  Lifted Relational Neural Networks (LRNNs) describe relational domains using
+weighted first-order rules which act as templates for constructing feed-forward
+neural networks. While previous work has shown that using LRNNs can lead to
+state-of-the-art results in various ILP tasks, these results depended on
+hand-crafted rules. In this paper, we extend the framework of LRNNs with
+structure learning, thus enabling a fully automated learning process. Similarly
+to many ILP methods, our structure learning algorithm proceeds in an iterative
+fashion by top-down searching through the hypothesis space of all possible Horn
+clauses, considering the predicates that occur in the training examples as well
+as invented soft concepts entailed by the best weighted rules found so far. In
+the experiments, we demonstrate the ability to automatically induce useful
+hierarchical soft concepts leading to deep LRNNs with a competitive predictive
+power.
+",1,1,0,0,0,0
+7877,7878,Deep Generative Learning via Variational Gradient Flow,"  We propose a general framework to learn deep generative models via
+\textbf{V}ariational \textbf{Gr}adient Fl\textbf{ow} (VGrow) on probability
+spaces. The evolving distribution that asymptotically converges to the target
+distribution is governed by a vector field, which is the negative gradient of
+the first variation of the $f$-divergence between them. We prove that the
+evolving distribution coincides with the pushforward distribution through the
+infinitesimal time composition of residual maps that are perturbations of the
+identity map along the vector field. The vector field depends on the density
+ratio of the pushforward distribution and the target distribution, which can be
+consistently learned from a binary classification problem. Connections of our
+proposed VGrow method with other popular methods, such as VAE, GAN and
+flow-based methods, have been established in this framework, gaining new
+insights of deep generative learning. We also evaluated several commonly used
+divergences, including Kullback-Leibler, Jensen-Shannon, Jeffrey divergences as
+well as our newly discovered `logD' divergence which serves as the objective
+function of the logD-trick GAN. Experimental results on benchmark datasets
+demonstrate that VGrow can generate high-fidelity images in a stable and
+efficient manner, achieving competitive performance with state-of-the-art GANs.
+",1,0,1,0,0,0
+20012,20013,Compressive Statistical Learning with Random Feature Moments,"  We describe a general framework --compressive statistical learning-- for
+resource-efficient large-scale learning: the training collection is compressed
+in one pass into a low-dimensional sketch (a vector of random empirical
+generalized moments) that captures the information relevant to the considered
+learning task. A near-minimizer of the risk is computed from the sketch through
+the solution of a nonlinear least squares problem. We investigate sufficient
+sketch sizes to control the generalization error of this procedure. The
+framework is illustrated on compressive clustering, compressive Gaussian
+mixture Modeling with fixed known variance, and compressive PCA.
+",1,0,1,0,0,0
+6761,6762,LoopInvGen: A Loop Invariant Generator based on Precondition Inference,"  We describe the LoopInvGen tool for generating loop invariants that can
+provably guarantee correctness of a program with respect to a given
+specification. LoopInvGen is an efficient implementation of the inference
+technique originally proposed in our earlier work on PIE
+(this https URL).
+In contrast to existing techniques, LoopInvGen is not restricted to a fixed
+set of features -- atomic predicates that are composed together to build
+complex loop invariants. Instead, we start with no initial features, and use
+program synthesis techniques to grow the set on demand. This not only enables a
+less onerous and more expressive approach, but also appears to be significantly
+faster than the existing tools over the SyGuS-COMP 2017 benchmarks from the INV
+track.
+",1,1,0,0,0,0
+358,359,A one-dimensional model for water desalination by flow-through electrode capacitive deionization,"  Capacitive deionization (CDI) is a fast-emerging water desalination
+technology in which a small cell voltage of ~1 V across porous carbon
+electrodes removes salt from feedwaters via electrosorption. In flow-through
+electrode (FTE) CDI cell architecture, feedwater is pumped through macropores
+or laser perforated channels in porous electrodes, enabling highly compact
+cells with parallel flow and electric field, as well as rapid salt removal. We
+here present a one-dimensional model describing water desalination by FTE CDI,
+and a comparison to data from a custom-built experimental cell. The model
+employs simple cell boundary conditions derived via scaling arguments. We show
+good model-to-data fits with reasonable values for fitting parameters such as
+the Stern layer capacitance, micropore volume, and attraction energy. Thus, we
+demonstrate that from an engineering modeling perspective, an FTE CDI cell may
+be described with simpler one-dimensional models, unlike more typical
+flow-between electrodes architecture where 2D models are required.
+",1,0,0,0,0,0
+12668,12669,Detecting laws in power subgroups,"  A group law is said to be detectable in power subgroups if, for all coprime
+$m$ and $n$, a group $G$ satisfies the law if and only if the power subgroups
+$G^m$ and $G^n$ both satisfy the law. We prove that for all positive integers
+$c$, nilpotency of class at most $c$ is detectable in power subgroups, as is
+the $k$-Engel law for $k$ at most 4. In contrast, detectability in power
+subgroups fails for solvability of given derived length: we construct a finite
+group $W$ such that $W^2$ and $W^3$ are metabelian but $W$ has derived length
+$3$. We analyse the complexity of the detectability of commutativity in power
+subgroups, in terms of finite presentations that encode a proof of the result.
+",1,0,0,0,0,0
+19164,19165,"Notes on the replica symmetric solution of the classical and quantum SK model, including the matrix of second derivatives and the spin glass susceptibility","  A review of the replica symmetric solution of the classical and quantum,
+infinite-range, Sherrington-Kirkpatrick spin glass is presented.
+",1,0,0,0,0,0
+1822,1823,Pre-freezing transition in Boltzmann-Gibbs measures associated with log-correlated fields,"  We consider Boltzmann-Gibbs measures associated with log-correlated Gaussian
+fields as potentials and study their multifractal properties which exhibit
+phase transitions. In particular, the pre-freezing and freezing phenomena of
+the annealed exponent, predicted by Fyodorov using a modified
+replica-symmetry-breaking ansatz, are generalised to arbitrary dimension and
+verified using results from Gaussian multiplicative chaos theory.
+",1,0,0,0,0,0
+19947,19948,Eckart ro-vibrational Hamiltonians via the gateway Hamilton operator: theory and practice,"  Recently, a general expression for Eckart-frame Hamilton operators has been
+obtained by the gateway Hamiltonian method ({\it J. Chem. Phys.} {\bf 142},
+174107 (2015); {\it ibid.} {\bf 143}, 064104 (2015)). The kinetic energy
+operator in this general Hamiltonian is nearly identical with that of the
+Eckart-Watson operator even when curvilinear vibrational coordinates are
+employed. Its different realizations correspond to different methods of
+calculating Eckart displacements. There are at least two different methods for
+calculating such displacements: rotation and projection. In this communication
+the application of Eckart Hamiltonian operators constructed by rotation and
+projection, respectively, is numerically demonstrated in calculating
+vibrational energy levels. The numerical examples confirm that there is no need
+for rotation to construct an Eckart ro-vibrational Hamiltonian. The application
+of the gateway method is advantageous even when rotation is used, since it
+obviates the need for differentiation of the matrix rotating into the Eckart
+frame. Simple geometrical arguments explain that there are infinitely many
+different methods for calculating Eckart displacements. The geometrical picture
+also suggests that a unique Eckart displacement vector may be defined as the
+shortest (mass-weighted) Eckart displacement vector among Eckart displacement
+vectors corresponding to configurations related by rotation. Its length, as
+shown analytically and demonstrated by way of numerical examples, is equal to
+or less than that of the Eckart displacement vector one can obtain by rotation
+to the Eckart frame.
+",1,0,0,0,0,0
+4994,4995,Model Order Selection Rules For Covariance Structure Classification,"  The adaptive classification of the interference covariance matrix structure
+for radar signal processing applications is addressed in this paper. This
+represents a key issue because many detection architectures are synthesized
+assuming a specific covariance structure which may not necessarily coincide
+with the actual one due to the joint action of the system and environment
+uncertainties. The considered classification problem is cast in terms of a
+multiple hypotheses test with some nested alternatives and the theory of Model
+Order Selection (MOS) is exploited to devise suitable decision rules. Several
+MOS techniques, such as the Akaike, Takeuchi, and Bayesian information criteria
+are adopted and the corresponding merits and drawbacks are discussed. At the
+analysis stage, illustrating examples for the probability of correct model
+selection are presented showing the effectiveness of the proposed rules.
+",1,1,0,0,0,0
+12966,12967,Detecting Strong Ties Using Network Motifs,"  Detecting strong ties among users in social and information networks is a
+fundamental operation that can improve performance on a multitude of
+personalization and ranking tasks. Strong-tie edges are often readily obtained
+from the social network as users often participate in multiple overlapping
+networks via features such as following and messaging. These networks may vary
+greatly in size, density and the information they carry. This setting leads to
+a natural strong tie detection task: given a small set of labeled strong tie
+edges, how well can one detect unlabeled strong ties in the remainder of the
+network?
+This task becomes particularly daunting for the Twitter network due to scant
+availability of pairwise relationship attribute data, and sparsity of strong
+tie networks such as phone contacts. Given these challenges, a natural approach
+is to instead use structural network features for the task, produced by {\em
+combining} the strong and ""weak"" edges. In this work, we demonstrate via
+experiments on Twitter data that using only such structural network features is
+sufficient for detecting strong ties with high precision. These structural
+network features are obtained from the presence and frequency of small network
+motifs on combined strong and weak ties. We observe that using motifs larger
+than triads alleviate sparsity problems that arise for smaller motifs, both due
+to increased combinatorial possibilities as well as benefiting strongly from
+searching beyond the ego network. Empirically, we observe that not all motifs
+are equally useful, and need to be carefully constructed from the combined
+edges in order to be effective for strong tie detection. Finally, we reinforce
+our experimental findings with providing theoretical justification that
+suggests why incorporating these larger sized motifs as features could lead to
+increased performance in planted graph models.
+",1,1,0,0,0,0
+10955,10956,Generating large misalignments in gapped and binary discs,"  Many protostellar gapped and binary discs show misalignments between their
+inner and outer discs; in some cases, $\sim70$ degree misalignments have been
+observed. Here we show that these misalignments can be generated through a
+""secular precession resonance"" between the nodal precession of the inner disc
+and the precession of the gap-opening (stellar or massive planetary) companion.
+An evolving protostellar system may naturally cross this resonance during its
+lifetime due to disc dissipation and/or companion migration. If resonance
+crossing occurs on the right timescale, of order a few Myrs, characteristic for
+young protostellar systems, the inner and outer discs can become highly
+misaligned ($\gtrsim 60$ degrees). When the primary star has a mass of order a
+solar mass, generating a significant misalignment typically requires the
+companion to have a mass of $\sim 0.01-0.1$ M$_\odot$ and an orbital separation
+of tens of AU. The recently observed companion in the cavity of the gapped,
+highly misaligned system HD 142527 satisfies these requirements, indicating
+that a previous resonance crossing event misaligned the inner and outer discs.
+Our scenario for HD 142527's misaligned discs predicts that the companion's
+orbital plane is aligned with the outer disc's; this prediction should be
+testable with future observations as the companion's orbit is mapped out.
+Misalignments observed in several other gapped disc systems could be generated
+by the same secular resonance mechanism.
+",0,0,1,0,0,0
+13128,13129,Deep Generative Models with Learnable Knowledge Constraints,"  The broad set of deep generative models (DGMs) has achieved remarkable
+advances. However, it is often difficult to incorporate rich structured domain
+knowledge with the end-to-end DGMs. Posterior regularization (PR) offers a
+principled framework to impose structured constraints on probabilistic models,
+but has limited applicability to the diverse DGMs that can lack a Bayesian
+formulation or even explicit density evaluation. PR also requires constraints
+to be fully specified a priori, which is impractical or suboptimal for complex
+knowledge with learnable uncertain parts. In this paper, we establish
+mathematical correspondence between PR and reinforcement learning (RL), and,
+based on the connection, expand PR to learn constraints as the extrinsic reward
+in RL. The resulting algorithm is model-agnostic to apply to any DGMs, and is
+flexible to adapt arbitrary constraints with the model jointly. Experiments on
+human image generation and templated sentence generation show models with
+learned knowledge constraints by our algorithm greatly improve over base
+generative models.
+",1,0,1,0,0,0
+18910,18911,Autonomous Extracting a Hierarchical Structure of Tasks in Reinforcement Learning and Multi-task Reinforcement Learning,"  Reinforcement learning (RL), while often powerful, can suffer from slow
+learning speeds, particularly in high dimensional spaces. The autonomous
+decomposition of tasks and use of hierarchical methods hold the potential to
+significantly speed up learning in such domains. This paper proposes a novel
+practical method that can autonomously decompose tasks, by leveraging
+association rule mining, which discovers hidden relationship among entities in
+data mining. We introduce a novel method called ARM-HSTRL (Association Rule
+Mining to extract Hierarchical Structure of Tasks in Reinforcement Learning).
+It extracts temporal and structural relationships of sub-goals in RL, and
+multi-task RL. In particular,it finds sub-goals and relationship among them. It
+is shown the significant efficiency and performance of the proposed method in
+two main topics of RL.
+",1,0,0,0,0,0
+7130,7131,Numerical dimension and locally ample curves,"  In the paper \cite{Lau16}, it was shown that the restriction of a
+pseudoeffective divisor $D$ to a subvariety $Y$ with nef normal bundle is
+pseudoeffective. Assuming the normal bundle is ample and that $D|_Y$ is not
+big, we prove that the numerical dimension of $D$ is bounded above by that of
+its restriction, i.e. $\kappa_{\sigma}(D)\leq \kappa_{\sigma}(D|_Y)$. The main
+motivation is to study the cycle classes of ""positive"" curves: we show that the
+cycle class of a curve with ample normal bundle lies in the interior of the
+cone of curves, and the cycle class of an ample curve lies in the interior of
+the cone of movable curves. We do not impose any condition on the singularities
+on the curve or the ambient variety. For locally complete intersection curves
+in a smooth projective variety, this is the main result of Ottem \cite{Ott16}.
+The main tool in this paper is the theory of $q$-ample divisors.
+",1,0,0,0,0,0
+19967,19968,Super-blockers and the effect of network structure on information cascades,"  Modelling information cascades over online social networks is important in
+fields from marketing to civil unrest prediction, however the underlying
+network structure strongly affects the probability and nature of such cascades.
+Even with simple cascade dynamics the probability of large cascades are almost
+entirely dictated by network properties, with well-known networks such as
+Erdos-Renyi and Barabasi-Albert producing wildly different cascades from the
+same model. Indeed, the notion of 'superspreaders' has arisen to describe
+highly influential nodes promoting global cascades in a social network. Here we
+use a simple model of global cascades to show that the presence of locality in
+the network increases the probability of a global cascade due to the increased
+vulnerability of connecting nodes. Rather than 'super-spreaders', we find that
+the presence of these highly connected 'super-blockers' in heavy-tailed
+networks in fact reduces the probability of global cascades, while promoting
+information spread when targeted as the initial spreader.
+",1,0,0,0,0,0
+16732,16733,Optimal control of two qubits via a single cavity drive in circuit quantum electrodynamics,"  Optimization of the fidelity of control operations is of critical importance
+in the pursuit of fault-tolerant quantum computation. We apply optimal control
+techniques to demonstrate that a single drive via the cavity in circuit quantum
+electrodynamics can implement a high-fidelity two-qubit all-microwave gate that
+directly entangles the qubits via the mutual qubit-cavity couplings. This is
+performed by driving at one of the qubits' frequencies which generates a
+conditional two-qubit gate, but will also generate other spurious interactions.
+These optimal control techniques are used to find pulse shapes that can perform
+this two-qubit gate with high fidelity, robust against errors in the system
+parameters. The simulations were all performed using experimentally relevant
+parameters and constraints.
+",1,1,0,0,0,0
+520,521,Towards a Service-oriented Platform for Intelligent Apps in Intermediate Cities,"  Smart cities are a growing trend in many cities in Argentina. In particular,
+the so-called intermediate cities present a context and requirements different
+from those of large cities with respect to smart cities. One aspect of
+relevance is to encourage the development of applications (generally for mobile
+devices) that enable citizens to take advantage of data and services normally
+associated with the city, for example, in the urban mobility domain. In this
+work, a platform is proposed for intermediate cities that provide ""high level""
+services and that allow the construction of software applications that consume
+those services. Our platform-centric strategy focused aims to integrate systems
+and heterogeneous data sources, and provide ""intelligent"" services to different
+applications. Examples of these services include: construction of user
+profiles, recommending local events, and collaborative sensing based on data
+mining techniques, among others. In this work, the design of this platform
+(currently in progress) is described, and experiences of applications for urban
+mobility are discussed, which are being migrated in the form of reusable
+services provided by the platform
+",1,0,0,0,0,0
+10131,10132,Knowledge Transfer for Out-of-Knowledge-Base Entities: A Graph Neural Network Approach,"  Knowledge base completion (KBC) aims to predict missing information in a
+knowledge base.In this paper, we address the out-of-knowledge-base (OOKB)
+entity problem in KBC:how to answer queries concerning test entities not
+observed at training time. Existing embedding-based KBC models assume that all
+test entities are available at training time, making it unclear how to obtain
+embeddings for new entities without costly retraining. To solve the OOKB entity
+problem without retraining, we use graph neural networks (Graph-NNs) to compute
+the embeddings of OOKB entities, exploiting the limited auxiliary knowledge
+provided at test time.The experimental results show the effectiveness of our
+proposed model in the OOKB setting.Additionally, in the standard KBC setting in
+which OOKB entities are not involved, our model achieves state-of-the-art
+performance on the WordNet dataset. The code and dataset are available at
+this https URL
+",1,0,0,0,0,0
+14375,14376,Self-Committee Approach for Image Restoration Problems using Convolutional Neural Network,"  There have been many discriminative learning methods using convolutional
+neural networks (CNN) for several image restoration problems, which learn the
+mapping function from a degraded input to the clean output. In this letter, we
+propose a self-committee method that can find enhanced restoration results from
+the multiple trial of a trained CNN with different but related inputs.
+Specifically, it is noted that the CNN sometimes finds different mapping
+functions when the input is transformed by a reversible transform and thus
+produces different but related outputs with the original. Hence averaging the
+outputs for several different transformed inputs can enhance the results as
+evidenced by the network committee methods. Unlike the conventional committee
+approaches that require several networks, the proposed method needs only a
+single network. Experimental results show that adding an additional transform
+as a committee always brings additional gain on image denoising and single
+image supre-resolution problems.
+",1,0,0,0,0,0
+20146,20147,Categories for Dynamic Epistemic Logic,"  The primary goal of this paper is to recast the semantics of modal logic, and
+dynamic epistemic logic (DEL) in particular, in category-theoretic terms. We
+first review the category of relations and categories of Kripke frames, with
+particular emphasis on the duality between relations and adjoint homomorphisms.
+Using these categories, we then reformulate the semantics of DEL in a more
+categorical and algebraic form. Several virtues of the new formulation will be
+demonstrated: The DEL idea of updating a model into another is captured
+naturally by the categorical perspective -- which emphasizes a family of
+objects and structural relationships among them, as opposed to a single object
+and structure on it. Also, the categorical semantics of DEL can be merged
+straightforwardly with a standard categorical semantics for first-order logic,
+providing a semantics for first-order DEL.
+",1,0,0,0,0,0
+16635,16636,Deep Unsupervised Clustering Using Mixture of Autoencoders,"  Unsupervised clustering is one of the most fundamental challenges in machine
+learning. A popular hypothesis is that data are generated from a union of
+low-dimensional nonlinear manifolds; thus an approach to clustering is
+identifying and separating these manifolds. In this paper, we present a novel
+approach to solve this problem by using a mixture of autoencoders. Our model
+consists of two parts: 1) a collection of autoencoders where each autoencoder
+learns the underlying manifold of a group of similar objects, and 2) a mixture
+assignment neural network, which takes the concatenated latent vectors from the
+autoencoders as input and infers the distribution over clusters. By jointly
+optimizing the two parts, we simultaneously assign data to clusters and learn
+the underlying manifolds of each cluster.
+",1,0,0,0,0,0
+664,665,Multi-dimensional Graph Fourier Transform,"  Many signals on Cartesian product graphs appear in the real world, such as
+digital images, sensor observation time series, and movie ratings on Netflix.
+These signals are ""multi-dimensional"" and have directional characteristics
+along each factor graph. However, the existing graph Fourier transform does not
+distinguish these directions, and assigns 1-D spectra to signals on product
+graphs. Further, these spectra are often multi-valued at some frequencies. Our
+main result is a multi-dimensional graph Fourier transform that solves such
+problems associated with the conventional GFT. Using algebraic properties of
+Cartesian products, the proposed transform rearranges 1-D spectra obtained by
+the conventional GFT into the multi-dimensional frequency domain, of which each
+dimension represents a directional frequency along each factor graph. Thus, the
+multi-dimensional graph Fourier transform enables directional frequency
+analysis, in addition to frequency analysis with the conventional GFT.
+Moreover, this rearrangement resolves the multi-valuedness of spectra in some
+cases. The multi-dimensional graph Fourier transform is a foundation of novel
+filterings and stationarities that utilize dimensional information of graph
+signals, which are also discussed in this study. The proposed methods are
+applicable to a wide variety of data that can be regarded as signals on
+Cartesian product graphs. This study also notes that multivariate graph signals
+can be regarded as 2-D univariate graph signals. This correspondence provides
+natural definitions of the multivariate graph Fourier transform and the
+multivariate stationarity based on their 2-D univariate versions.
+",1,0,0,0,0,0
+15479,15480,Robust and Efficient Transfer Learning with Hidden-Parameter Markov Decision Processes,"  We introduce a new formulation of the Hidden Parameter Markov Decision
+Process (HiP-MDP), a framework for modeling families of related tasks using
+low-dimensional latent embeddings. Our new framework correctly models the joint
+uncertainty in the latent parameters and the state space. We also replace the
+original Gaussian Process-based model with a Bayesian Neural Network, enabling
+more scalable inference. Thus, we expand the scope of the HiP-MDP to
+applications with higher dimensions and more complex dynamics.
+",1,0,0,0,0,0
+17367,17368,Characterizing Dust Attenuation in Local Star-Forming Galaxies: Near-Infrared Reddening and Normalization,"  We characterize the near-infrared (NIR) dust attenuation for a sample of
+~5500 local (z<0.1) star-forming galaxies and obtain an estimate of their
+average total-to-selective attenuation $k(\lambda)$. We utilize data from the
+United Kingdom Infrared Telescope (UKIRT) and the Two Micron All-Sky Survey
+(2MASS), which is combined with previously measured UV-optical data for these
+galaxies. The average attenuation curve is slightly lower in the far-UV than
+local starburst galaxies, by roughly 15%, but appears similar at longer
+wavelengths with a total-to-selective normalization at V-band of
+$R_V=3.67\substack{+0.44 \\ -0.35}$. Under the assumption of energy balance,
+the total attenuated energy inferred from this curve is found to be broadly
+consistent with the observed infrared dust emission ($L_{\rm{TIR}}$) in a small
+sample of local galaxies for which far-IR measurements are available. However,
+the significant scatter in this quantity among the sample may reflect large
+variations in the attenuation properties of individual galaxies. We also derive
+the attenuation curve for sub-populations of the main sample, separated
+according to mean stellar population age (via $D_n4000$), specific star
+formation rate, stellar mass, and metallicity, and find that they show only
+tentative trends with low significance, at least over the range which is probed
+by our sample. These results indicate that a single curve is reasonable for
+applications seeking to broadly characterize large samples of galaxies in the
+local Universe, while applications to individual galaxies would yield large
+uncertainties and is not recommended.
+",0,0,1,0,0,0
+4372,4373,The Ebb and Flow of Controversial Debates on Social Media,"  We explore how the polarization around controversial topics evolves on
+Twitter - over a long period of time (2011 to 2016), and also as a response to
+major external events that lead to increased related activity. We find that
+increased activity is typically associated with increased polarization;
+however, we find no consistent long-term trend in polarization over time among
+the topics we study.
+",1,0,0,0,0,0
+11860,11861,Recurrent Environment Simulators,"  Models that can simulate how environments change in response to actions can
+be used by agents to plan and act efficiently. We improve on previous
+environment simulators from high-dimensional pixel observations by introducing
+recurrent neural networks that are able to make temporally and spatially
+coherent predictions for hundreds of time-steps into the future. We present an
+in-depth analysis of the factors affecting performance, providing the most
+extensive attempt to advance the understanding of the properties of these
+models. We address the issue of computationally inefficiency with a model that
+does not need to generate a high-dimensional image at each time-step. We show
+that our approach can be used to improve exploration and is adaptable to many
+diverse environments, namely 10 Atari games, a 3D car racing environment, and
+complex 3D mazes.
+",1,0,0,0,0,0
+10559,10560,Modeling of nonlinear audio effects with end-to-end deep neural networks,"  In the context of music production, distortion effects are mainly used for
+aesthetic reasons and are usually applied to electric musical instruments. Most
+existing methods for nonlinear modeling are often either simplified or
+optimized to a very specific circuit. In this work, we investigate deep
+learning architectures for audio processing and we aim to find a general
+purpose end-to-end deep neural network to perform modeling of nonlinear audio
+effects. We show the network modeling various nonlinearities and we discuss the
+generalization capabilities among different instruments.
+",1,1,0,0,0,0
+17774,17775,Mendelian randomization with fine-mapped genetic data: choosing from large numbers of correlated instrumental variables,"  Mendelian randomization uses genetic variants to make causal inferences about
+the effect of a risk factor on an outcome. With fine-mapped genetic data, there
+may be hundreds of genetic variants in a single gene region any of which could
+be used to assess this causal relationship. However, using too many genetic
+variants in the analysis can lead to spurious estimates and inflated Type 1
+error rates. But if only a few genetic variants are used, then the majority of
+the data is ignored and estimates are highly sensitive to the particular choice
+of variants. We propose an approach based on summarized data only (genetic
+association and correlation estimates) that uses principal components analysis
+to form instruments. This approach has desirable theoretical properties: it
+takes the totality of data into account and does not suffer from numerical
+instabilities. It also has good properties in simulation studies: it is not
+particularly sensitive to varying the genetic variants included in the analysis
+or the genetic correlation matrix, and it does not have greatly inflated Type 1
+error rates. Overall, the method gives estimates that are not so precise as
+those from variable selection approaches (such as using a conditional analysis
+or pruning approach to select variants), but are more robust to seemingly
+arbitrary choices in the variable selection step. Methods are illustrated by an
+example using genetic associations with testosterone for 320 genetic variants
+to assess the effect of sex hormone-related pathways on coronary artery disease
+risk, in which variable selection approaches give inconsistent inferences.
+",1,0,0,0,0,0
+17111,17112,A Redshift Survey of the Nearby Galaxy Cluster Abell 2199: Comparison of the Spatial and Kinematic Distributions of Galaxies with the Intracluster Medium,"  We present the results from an extensive spectroscopic survey of the central
+region of the nearby galaxy cluster Abell 2199 at $z=0.03$. By combining 775
+new redshifts from the MMT/Hectospec observations with the data in the
+literature, we construct a large sample of 1624 galaxies with measured
+redshifts at $R<30^\prime$, which results in high spectroscopic completeness at
+$r_{\rm petro,0}<20.5$ (77%). We use these data to study the kinematics and
+clustering of galaxies focusing on the comparison with those of the
+intracluster medium (ICM) from Suzaku X-ray observations. We identify 406
+member galaxies of A2199 at $R<30^\prime$ using the caustic technique. The
+velocity dispersion profile of cluster members appears smoothly connected to
+the stellar velocity dispersion profile of the cD galaxy. The luminosity
+function is well fitted with a Schechter function at $M_r<-15$. The radial
+velocities of cluster galaxies generally agree well with those of the ICM, but
+there are some regions where the velocity difference between the two is about a
+few hundred kilometer per second. The cluster galaxies show a hint of global
+rotation at $R<5^\prime$ with $v_{\rm rot}=300{-}600\,\textrm{km s}^{-1}$, but
+the ICM in the same region do not show such rotation. We apply a
+friends-of-friends algorithm to the cluster galaxy sample at $R<60^\prime$ and
+identify 32 group candidates, and examine the spatial correlation between the
+galaxy groups and X-ray emission. This extensive survey in the central region
+of A2199 provides an important basis for future studies of interplay among the
+galaxies, the ICM and the dark matter in the cluster.
+",1,0,0,0,0,0
+10720,10721,Better Text Understanding Through Image-To-Text Transfer,"  Generic text embeddings are successfully used in a variety of tasks. However,
+they are often learnt by capturing the co-occurrence structure from pure text
+corpora, resulting in limitations of their ability to generalize. In this
+paper, we explore models that incorporate visual information into the text
+representation. Based on comprehensive ablation studies, we propose a
+conceptually simple, yet well performing architecture. It outperforms previous
+multimodal approaches on a set of well established benchmarks. We also improve
+the state-of-the-art results for image-related text datasets, using orders of
+magnitude less data.
+",1,0,0,0,0,0
+3155,3156,Learning from various labeling strategies for suicide-related messages on social media: An experimental study,"  Suicide is an important but often misunderstood problem, one that researchers
+are now seeking to better understand through social media. Due in large part to
+the fuzzy nature of what constitutes suicidal risks, most supervised approaches
+for learning to automatically detect suicide-related activity in social media
+require a great deal of human labor to train. However, humans themselves have
+diverse or conflicting views on what constitutes suicidal thoughts. So how to
+obtain reliable gold standard labels is fundamentally challenging and, we
+hypothesize, depends largely on what is asked of the annotators and what slice
+of the data they label. We conducted multiple rounds of data labeling and
+collected annotations from crowdsourcing workers and domain experts. We
+aggregated the resulting labels in various ways to train a series of supervised
+models. Our preliminary evaluations show that using unanimously agreed labels
+from multiple annotators is helpful to achieve robust machine models.
+",1,0,0,0,0,0
+7901,7902,ELICA: An Automated Tool for Dynamic Extraction of Requirements Relevant Information,"  Requirements elicitation requires extensive knowledge and deep understanding
+of the problem domain where the final system will be situated. However, in many
+software development projects, analysts are required to elicit the requirements
+from an unfamiliar domain, which often causes communication barriers between
+analysts and stakeholders. In this paper, we propose a requirements ELICitation
+Aid tool (ELICA) to help analysts better understand the target application
+domain by dynamic extraction and labeling of requirements-relevant knowledge.
+To extract the relevant terms, we leverage the flexibility and power of
+Weighted Finite State Transducers (WFSTs) in dynamic modeling of natural
+language processing tasks. In addition to the information conveyed through
+text, ELICA captures and processes non-linguistic information about the
+intention of speakers such as their confidence level, analytical tone, and
+emotions. The extracted information is made available to the analysts as a set
+of labeled snippets with highlighted relevant terms which can also be exported
+as an artifact of the Requirements Engineering (RE) process. The application
+and usefulness of ELICA are demonstrated through a case study. This study shows
+how pre-existing relevant information about the application domain and the
+information captured during an elicitation meeting, such as the conversation
+and stakeholders' intentions, can be captured and used to support analysts
+achieving their tasks.
+",1,0,0,0,0,0
+14608,14609,A shared latent space matrix factorisation method for recommending new trial evidence for systematic review updates,"  Clinical trial registries can be used to monitor the production of trial
+evidence and signal when systematic reviews become out of date. However, this
+use has been limited to date due to the extensive manual review required to
+search for and screen relevant trial registrations. Our aim was to evaluate a
+new method that could partially automate the identification of trial
+registrations that may be relevant for systematic review updates. We identified
+179 systematic reviews of drug interventions for type 2 diabetes, which
+included 537 clinical trials that had registrations in ClinicalTrials.gov. We
+tested a matrix factorisation approach that uses a shared latent space to learn
+how to rank relevant trial registrations for each systematic review, comparing
+the performance to document similarity to rank relevant trial registrations.
+The two approaches were tested on a holdout set of the newest trials from the
+set of type 2 diabetes systematic reviews and an unseen set of 141 clinical
+trial registrations from 17 updated systematic reviews published in the
+Cochrane Database of Systematic Reviews. The matrix factorisation approach
+outperformed the document similarity approach with a median rank of 59 and
+recall@100 of 60.9%, compared to a median rank of 138 and recall@100 of 42.8%
+in the document similarity baseline. In the second set of systematic reviews
+and their updates, the highest performing approach used document similarity and
+gave a median rank of 67 (recall@100 of 62.9%). The proposed method was useful
+for ranking trial registrations to reduce the manual workload associated with
+finding relevant trials for systematic review updates. The results suggest that
+the approach could be used as part of a semi-automated pipeline for monitoring
+potentially new evidence for inclusion in a review update.
+",1,0,0,0,0,0
+11428,11429,A complete characterization of optimal dictionaries for least squares representation,"  Dictionaries are collections of vectors used for representations of elements
+in Euclidean spaces. While recent research on optimal dictionaries is focussed
+on providing sparse (i.e., $\ell_0$-optimal,) representations, here we consider
+the problem of finding optimal dictionaries such that representations of
+samples of a random vector are optimal in an $\ell_2$-sense. For us, optimality
+of representation is equivalent to minimization of the average $\ell_2$-norm of
+the coefficients used to represent the random vector, with the lengths of the
+dictionary vectors being specified a priori. With the help of recent results on
+rank-$1$ decompositions of symmetric positive semidefinite matrices and the
+theory of majorization, we provide a complete characterization of
+$\ell_2$-optimal dictionaries. Our results are accompanied by polynomial time
+algorithms that construct $\ell_2$-optimal dictionaries from given data.
+",1,1,0,0,0,0
+3095,3096,Monitoring Information Quality within Web Service Composition and Execution,"  The composition of web services is a promising approach enabling flexible and
+loose integration of business applications. Numerous approaches related to web
+services composition have been developed usually following three main phases:
+the service discovery is based on the semantic description of advertised
+services, i.e. the functionality of the service, meanwhile the service
+selection is based on non- functional quality dimensions of service, and
+finally the service composition aims to support an underlying process. Most of
+those approaches explore techniques of static or dynamic design for an optimal
+service composition. One important aspect so far is mostly neglected, focusing
+on the output produced of composite web services. In this paper, in contrast to
+many prominent approaches we introduce a data quality perspective on web
+services. Based on a data quality management approach, we propose a framework
+for analyzing data produced by the composite service execution. Utilising
+process information together with data in service logs, our approach allows
+identifying problems in service composition and execution. Analyzing the
+service execution history our approach helps to improve common approaches of
+service selection and composition.
+",1,0,0,0,0,0
+17175,17176,"Some results on Ricatti Equations, Floquet Theory and Applications","  In this paper, we present two new results to the classical Floquet theory,
+which provides the Floquet multipliers for two classes of the planar periodic
+system. One these results provides the Floquet multipliers independently of the
+solution of system. To demonstrate the application of these analytical results,
+we consider a cholera epidemic model with phage dynamics and seasonality
+incorporated.
+",1,0,0,0,0,0
+12941,12942,Commissioning of FLAG: A phased array feed for the GBT,"  Phased Array Feed (PAF) technology is the next major advancement in radio
+astronomy in terms of combining high sensitivity and large field of view. The
+Focal L-band Array for the Green Bank Telescope (FLAG) is one of the most
+sensitive PAFs developed so far. It consists of 19 dual-polarization elements
+mounted on a prime focus dewar resulting in seven beams on the sky. Its
+unprecedented system temperature of$\sim$17 K will lead to a 3 fold increase in
+pulsar survey speeds as compared to contemporary single pixel feeds. Early
+science observations were conducted in a recently concluded commissioning phase
+of the FLAG where we clearly demonstrated its science capabilities. We observed
+a selection of normal and millisecond pulsars and detected giant pulses from
+PSR B1937+21.
+",1,0,0,0,0,0
+8018,8019,A sufficiently complicated noded Schottky group of rank three,"  The theoretical existence of non-classical Schottky groups is due to Marden.
+Explicit examples of such kind of groups are only known in rank two, the first
+one by by Yamamoto in 1991 and later by Williams in 2009. In 2006, Maskit and
+the author provided a theoretical method to obtain examples of non-classical
+Schottky groups in any rank. The method assumes the knowledge of some algebraic
+limits of Schottky groups, called sufficiently complicated noded Schottky
+groups, whose existence was stated. In this paper we provide an explicit
+construction of a sufficiently complicated noded Schottky group of rank three
+and it is explained how to construct explicit non-classical Schottky groups of
+rank three.
+",1,1,0,0,0,0
+1468,1469,Generalized Dirac structure beyond the linear regime in graphene,"  We show that a generalized Dirac structure survives beyond the linear regime
+of the low-energy dispersion relations of graphene. A generalized uncertainty
+principle of the kind compatible with specific quantum gravity scenarios with a
+fundamental minimal length (here graphene lattice spacing) and Lorentz
+violation (here the particle/hole asymmetry, the trigonal warping, etc.) is
+naturally obtained. We then show that the corresponding emergent field theory
+is a table-top realization of such scenarios, by explicitly computing the third
+order Hamiltonian, and giving the general recipe for any order. Remarkably, our
+results imply that going beyond the low-energy approximation does not spoil the
+well-known correspondence with analogue massless quantum electrodynamics
+phenomena (as usually believed), but rather it is a way to obtain experimental
+signatures of quantum-gravity-like corrections to such phenomena.
+",1,0,0,0,0,0
+19831,19832,MACS J0416.1-2403: Impact of line-of-sight structures on strong gravitational lensing modelling of galaxy clusters,"  Exploiting the powerful tool of strong gravitational lensing by galaxy
+clusters to study the highest-redshift Universe and cluster mass distributions
+relies on precise lens mass modelling. In this work, we present the first
+attempt at modelling line-of-sight mass distribution in addition to that of the
+cluster, extending previous modelling techniques that assume mass distributions
+to be on a single lens plane. We focus on the Hubble Frontier Field cluster
+MACS J0416.1-2403, and our multi-plane model reproduces the observed image
+positions with a rms offset of ~0.53"". Starting from this best-fitting model,
+we simulate a mock cluster that resembles MACS J0416.1-2403 in order to explore
+the effects of line-of-sight structures on cluster mass modelling. By
+systematically analysing the mock cluster under different model assumptions, we
+find that neglecting the lensing environment has a significant impact on the
+reconstruction of image positions (rms ~0.3""); accounting for line-of-sight
+galaxies as if they were at the cluster redshift can partially reduce this
+offset. Moreover, foreground galaxies are more important to include into the
+model than the background ones. While the magnification factors of the lensed
+multiple images are recovered within ~10% for ~95% of them, those ~5% that lie
+near critical curves can be significantly affected by the exclusion of the
+lensing environment in the models (up to a factor of ~200). In addition,
+line-of-sight galaxies cannot explain the apparent discrepancy in the
+properties of massive subhalos between MACS J0416.1-2403 and N-body simulated
+clusters. Since our model of MACS J0416.1-2403 with line-of-sight galaxies only
+reduced modestly the rms offset in the image positions, we conclude that
+additional complexities, such as more flexible halo shapes, would be needed in
+future models of MACS J0416.1-2403.
+",1,0,1,0,0,0
+9523,9524,Dynamic Advisor-Based Ensemble (dynABE): Case Study in Stock Trend Prediction of Critical Metal Companies,"  The demand for metals by modern technology has been shifting from common base
+metals to a variety of minor metals, such as cobalt or indium. The industrial
+importance and limited geological availability of some minor metals have led to
+them being considered more ""critical,"" and there is a growing investment
+interest in such critical metals and their producing companies. In this
+research, we create a novel framework, Dynamic Advisor-Based Ensemble (dynABE),
+for stock prediction and use critical metal companies as case study. dynABE
+uses domain knowledge to diversify the feature set by dividing them into
+different ""advisors."" creates high-level ensembles with complex base models for
+each advisor, and combines the advisors together dynamically during validation
+with a novel and effective online update strategy. We test dynABE on three
+cobalt-related companies, and it achieves the best-case misclassification error
+of 31.12% and excess return of 477% compared to the stock itself in a year and
+a half. In addition to presenting an effective stock prediction model with
+decent profitabilities, this research further analyzes dynABE to visualize how
+it works in practice, which also yields discoveries of its interesting
+behaviors when processing time-series data.
+",1,1,0,0,0,0
+6097,6098,"Conditional Independence, Conditional Mean Independence, and Zero Conditional Covariance","  Investigation of the reversibility of the directional hierarchy in the
+interdependency among the notions of conditional independence, conditional mean
+independence, and zero conditional covariance, for two random variables X and Y
+given a conditioning element Z which is not constrained by any topological
+restriction on its range, reveals that if the first moments of X, Y, and XY
+exist, then conditional independence implies conditional mean independence and
+conditional mean independence implies zero conditional covariance, but the
+direction of the hierarchy is not reversible in general. If the conditional
+expectation of Y given X and Z is ""affine in X,"" which happens when X is
+Bernoulli, then the ""intercept"" and ""slope"" of the conditional expectation
+(that is, the nonparametric regression function) equal the ""intercept"" and
+""slope"" of the ""least-squares linear regression function"", as a result of which
+zero conditional covariance implies conditional mean independence.
+",1,0,0,0,0,0
+20273,20274,Large-Scale Low-Rank Matrix Learning with Nonconvex Regularizers,"  Low-rank modeling has many important applications in computer vision and
+machine learning. While the matrix rank is often approximated by the convex
+nuclear norm, the use of nonconvex low-rank regularizers has demonstrated
+better empirical performance. However, the resulting optimization problem is
+much more challenging. Recent state-of-the-art requires an expensive full SVD
+in each iteration. In this paper, we show that for many commonly-used nonconvex
+low-rank regularizers, a cutoff can be derived to automatically threshold the
+singular values obtained from the proximal operator. This allows such operator
+being efficiently approximated by power method. Based on it, we develop a
+proximal gradient algorithm (and its accelerated variant) with inexact proximal
+splitting and prove that a convergence rate of O(1/T) where T is the number of
+iterations is guaranteed. Furthermore, we show the proposed algorithm can be
+well parallelized, which achieves nearly linear speedup w.r.t the number of
+threads. Extensive experiments are performed on matrix completion and robust
+principal component analysis, which shows a significant speedup over the
+state-of-the-art. Moreover, the matrix solution obtained is more accurate and
+has a lower rank than that of the nuclear norm regularizer.
+",1,0,0,0,0,0
+8724,8725,Phase Diagram of Carbon Nickel Tungsten: Superatom Model,"  Carbon solubility in face-centered cubic Ni-W alloys and the phase diagram of
+C-Ni-W are investigated by means of first principle calculations and semi-grand
+canonical Monte Carlo simulations. With density functional theory (DFT) total
+energies as fitting data, we build a superatom model for efficient simulation.
+Multi-histogram analysis is utilized to predict free energies for different
+compositions and temperatures. By comparing free energies of competing phases,
+we are able to predict carbon solubility and phase diagrams of C-Ni-W at
+different temperatures. A simple ideal mixing approximation gives qualitatively
+similar predictions.
+",1,0,0,0,0,0
+7869,7870,Existence and uniqueness of solutions to Y-systems and TBA equations,"  We consider Y-system functional equations of the form $$
+Y_n(x+i)Y_n(x-i)=\prod_{m=1}^N (1+Y_m(x))^{G_{nm}}$$ and the corresponding
+nonlinear integral equations of the Thermodynamic Bethe Ansatz. We prove an
+existence and uniqueness result for solutions of these equations, subject to
+appropriate conditions on the analytical properties of the $Y_n$, in particular
+the absence of zeros in a strip around the real axis. The matrix $G_{nm}$ must
+have non-negative real entries, and be irreducible and diagonalisable over
+$\mathbb{R}$ with spectral radius less than 2. This includes the adjacency
+matrices of finite Dynkin diagrams, but covers much more as we do not require
+$G_{nm}$ to be integers. Our results specialise to the constant Y-system,
+proving existence and uniqueness of a strictly positive solution in that case.
+",1,0,0,0,0,0
+5358,5359,Frequency analysis and the representation of slowly diffusing planetary solutions,"  Over short time intervals planetary ephemerides have been traditionally
+represented in analytical form as finite sums of periodic terms or sums of
+Poisson terms that are periodic terms with polynomial amplitudes. Nevertheless,
+this representation is not well adapted for the evolution of the planetary
+orbits in the solar system over million of years as they present drifts in
+their main frequencies, due to the chaotic nature of their dynamics. The aim of
+the present paper is to develop a numerical algorithm for slowly diffusing
+solutions of a perturbed integrable Hamiltonian system that will apply to the
+representation of the chaotic planetary motions with varying frequencies. By
+simple analytical considerations, we first argue that it is possible to recover
+exactly a single varying frequency. Then, a function basis involving
+time-dependent fundamental frequencies is formulated in a semi-analytical way.
+Finally, starting from a numerical solution, a recursive algorithm is used to
+numerically decompose the solution on the significant elements of the function
+basis. Simple examples show that this algorithm can be used to give compact
+representations of different types of slowly diffusing solutions. As a test
+example, we show how this algorithm can be successfully applied to obtain a
+very compact approximation of the La2004 solution of the orbital motion of the
+Earth over 40 Myr ([-35Myr,5Myr]). This example has been chosen as this
+solution is widely used for the reconstruction of the climates of the past.
+",1,1,0,0,0,0
+12070,12071,Fixed Price Approximability of the Optimal Gain From Trade,"  Bilateral trade is a fundamental economic scenario comprising a strategically
+acting buyer and seller, each holding valuations for the item, drawn from
+publicly known distributions. A mechanism is supposed to facilitate trade
+between these agents, if such trade is beneficial. It was recently shown that
+the only mechanisms that are simultaneously DSIC, SBB, and ex-post IR, are
+fixed price mechanisms, i.e., mechanisms that are parametrised by a price p,
+and trade occurs if and only if the valuation of the buyer is at least p and
+the valuation of the seller is at most p. The gain from trade is the increase
+in welfare that results from applying a mechanism; here we study the gain from
+trade achievable by fixed price mechanisms. We explore this question for both
+the bilateral trade setting, and a double auction setting where there are
+multiple buyers and sellers. We first identify a fixed price mechanism that
+achieves a gain from trade of at least 2/r times the optimum, where r is the
+probability that the seller's valuation does not exceed the buyer's valuation.
+This extends a previous result by McAfee. Subsequently, we improve this
+approximation factor in an asymptotic sense, by showing that a more
+sophisticated rule for setting the fixed price results in an expected gain from
+trade within a factor O(log(1/r)) of the optimal gain from trade. This is
+asymptotically the best approximation factor possible. Lastly, we extend our
+study of fixed price mechanisms to the double auction setting defined by a set
+of multiple i.i.d. unit demand buyers, and i.i.d. unit supply sellers. We
+present a fixed price mechanism that achieves a gain from trade that achieves
+for all epsilon > 0 a gain from trade of at least (1-epsilon) times the
+expected optimal gain from trade with probability 1 - 2/e^{#T epsilon^2 /2},
+where #T is the expected number of trades resulting from the double auction.
+",1,0,0,0,0,0
+13552,13553,The effect of an offset polar cap dipolar magnetic field on the modeling of the Vela pulsar's $γ$-ray light curves,"  We performed geometric pulsar light curve modeling using static, retarded
+vacuum, and offset polar cap (PC) dipole $B$-fields (the latter is
+characterized by a parameter $\epsilon$), in conjunction with standard two-pole
+caustic (TPC) and outer gap (OG) emission geometries. The offset-PC dipole
+$B$-field mimics deviations from the static dipole (which corresponds to
+$\epsilon=0$). In addition to constant-emissivity geometric models, we also
+considered a slot gap (SG) $E$-field associated with the offset-PC dipole
+$B$-field and found that its inclusion leads to qualitatively different light
+curves. Solving the particle transport equation shows that the particle energy
+only becomes large enough to yield significant curvature radiation at large
+altitudes above the stellar surface, given this relatively low $E$-field.
+Therefore, particles do not always attain the radiation-reaction limit. Our
+overall optimal light curve fit is for the retarded vacuum dipole field and OG
+model, at an inclination angle $\alpha=78{_{-1}^{+1}}^{\circ}$ and observer
+angle $\zeta=69{_{-1}^{+2}}^{\circ}$. For this $B$-field, the TPC model is
+statistically disfavored compared to the OG model. For the static dipole field,
+neither model is significantly preferred. We found that smaller values of
+$\epsilon$ are favored for the offset-PC dipole field when assuming constant
+emissivity, and larger $\epsilon$ values favored for variable emissivity, but
+not significantly so. When multiplying the SG $E$-field by a factor of 100, we
+found improved light curve fits, with $\alpha$ and $\zeta$ being closer to best
+fits from independent studies, as well as curvature radiation reaction at lower
+altitudes.
+",0,0,1,0,0,0
+15368,15369,Application of a Shallow Neural Network to Short-Term Stock Trading,"  Machine learning is increasingly prevalent in stock market trading. Though
+neural networks have seen success in computer vision and natural language
+processing, they have not been as useful in stock market trading. To
+demonstrate the applicability of a neural network in stock trading, we made a
+single-layer neural network that recommends buying or selling shares of a stock
+by comparing the highest high of 10 consecutive days with that of the next 10
+days, a process repeated for the stock's year-long historical data. A
+chi-squared analysis found that the neural network can accurately and
+appropriately decide whether to buy or sell shares for a given stock, showing
+that a neural network can make simple decisions about the stock market.
+",1,0,0,0,0,0
+17902,17903,Ultraproducts of crossed product von Neumann algebras,"  We study a relationship between the ultraproduct of a crossed product von
+Neumann algebra and the crossed product of an ultraproduct von Neumann algebra.
+As an application, the continuous core of an ultraproduct von Neumann algebra
+is described.
+",1,0,0,0,0,0
+12469,12470,Deep Image Prior,"  Deep convolutional networks have become a popular tool for image generation
+and restoration. Generally, their excellent performance is imputed to their
+ability to learn realistic image priors from a large number of example images.
+In this paper, we show that, on the contrary, the structure of a generator
+network is sufficient to capture a great deal of low-level image statistics
+prior to any learning. In order to do so, we show that a randomly-initialized
+neural network can be used as a handcrafted prior with excellent results in
+standard inverse problems such as denoising, super-resolution, and inpainting.
+Furthermore, the same prior can be used to invert deep neural representations
+to diagnose them, and to restore images based on flash-no flash input pairs.
+Apart from its diverse applications, our approach highlights the inductive
+bias captured by standard generator network architectures. It also bridges the
+gap between two very popular families of image restoration methods:
+learning-based methods using deep convolutional networks and learning-free
+methods based on handcrafted image priors such as self-similarity. Code and
+supplementary material are available at
+this https URL .
+",1,0,0,0,0,0
+19805,19806,Simple Compact Monotone Tree Drawings,"  A monotone drawing of a graph G is a straight-line drawing of G such that
+every pair of vertices is connected by a path that is monotone with respect to
+some direction.
+Trees, as a special class of graphs, have been the focus of several papers
+and, recently, He and He~\cite{mt:4} showed how to produce a monotone drawing
+of an arbitrary $n$-vertex tree that is contained in a $12n \times 12n$ grid.
+All monotone tree drawing algorithms that have appeared in the literature
+consider rooted ordered trees and they draw them so that (i) the root of the
+tree is drawn at the origin of the drawing, (ii) the drawing is confined in the
+first quadrant, and (iii) the ordering/embedding of the tree is respected. In
+this paper, we provide a simple algorithm that has the exact same
+characteristics and, given an $n$-vertex rooted tree $T$, it outputs a monotone
+drawing of $T$ that fits on a $n \times n$ grid.
+For unrooted ordered trees, we present an algorithms that produces monotone
+drawings that respect the ordering and fit in an $(n+1) \times (\frac{n}{2}
++1)$ grid, while, for unrooted non-ordered trees we produce monotone drawings
+of good aspect ratio which fit on a grid of size at most $\left\lfloor
+\frac{3}{4} \left(n+2\right)\right\rfloor \times \left\lfloor \frac{3}{4}
+\left(n+2\right)\right\rfloor$.
+",1,0,0,0,0,0
+13198,13199,Terrestrial effects of moderately nearby supernovae,"  Recent data indicate one or more moderately nearby supernovae in the early
+Pleistocene, with additional events likely in the Miocene. This has motivated
+more detailed computations, using new information about the nature of
+supernovae and the distances of these events to describe in more detail the
+sorts of effects that are indicated at the Earth. This short
+communication/review is designed to describe some of these effects so that they
+may possibly be related to changes in the biota around these times.
+",1,0,0,0,0,0
+13479,13480,Maximum redshift of gravitational wave merger events,"  Future generation of gravitational wave detectors will have the sensitivity
+to detect gravitational wave events at redshifts far beyond any detectable
+electromagnetic sources. We show that if the observed event rate is greater
+than one event per year at redshifts z > 40, then the probability distribution
+of primordial density fluctuations must be significantly non-Gaussian or the
+events originate from primordial black holes. The nature of the excess events
+can be determined from the redshift distribution of the merger rate.
+",0,0,1,0,0,0
+5527,5528,Proceedings 15th International Conference on Automata and Formal Languages,"  The 15th International Conference on Automata and Formal Languages (AFL 2017)
+was held in Debrecen, Hungary, from September 4 to 6, 2017. The conference was
+organized by the Faculty of Informatics of the University of Debrecen and the
+Faculty of Informatics of the Eötvös Loránd University of Budapest.
+Topics of interest covered all aspects of automata and formal languages,
+including theory and applications.
+",1,0,0,0,0,0
+18474,18475,Solvable Hydrodynamics of Quantum Integrable Systems,"  The conventional theory of hydrodynamics describes the evolution in time of
+chaotic many-particle systems from local to global equilibrium. In a quantum
+integrable system, local equilibrium is characterized by a local generalized
+Gibbs ensemble or equivalently a local distribution of pseudo-momenta. We study
+time evolution from local equilibria in such models by solving a certain
+kinetic equation, the ""Bethe-Boltzmann"" equation satisfied by the local
+pseudo-momentum density. Explicit comparison with density matrix
+renormalization group time evolution of a thermal expansion in the XXZ model
+shows that hydrodynamical predictions from smooth initial conditions can be
+remarkably accurate, even for small system sizes. Solutions are also obtained
+in the Lieb-Liniger model for free expansion into vacuum and collisions between
+clouds of particles, which model experiments on ultracold one-dimensional Bose
+gases.
+",1,0,0,0,0,0
+13477,13478,Natural Time Analysis of Seismicity in California: The epicenter of an impending mainshock,"  Upon employing the analysis in a new time domain, termed natural time, it has
+been recently demonstrated that a remarkable change of seismicity emerges
+before major mainshocks in California. What constitutes this change is that the
+fluctuations of the order parameter of seismicity exhibit a clearly detectable
+minimum. This is identified by using a natural time window sliding event by
+event through the time series of the earthquakes in a wide area and comprising
+a number of events that would occur on the average within a few months or so.
+Here, we suggest a method to estimate the epicentral area of an impending
+mainshock by an additional study of this minimum using an area window sliding
+through the wide area. We find that when this area window surrounds (or is
+adjacent to) the future epicentral area, the minimum of the order parameter
+fluctuations in this area appears at a date very close to the one at which the
+minimum is observed in the wide area. The method is applied here to major
+earthquakes that occurred in California during the recent decades including the
+largest one, i.e., the 1992 Landers earthquake.
+",1,0,1,0,0,0
+10059,10060,Epidemic dynamics in open quantum spin systems,"  We explore the non-equilibrium evolution and stationary states of an open
+many-body system which displays epidemic spreading dynamics in a classical and
+a quantum regime. Our study is motivated by recent experiments conducted in
+strongly interacting gases of highly excited Rydberg atoms where the
+facilitated excitation of Rydberg states competes with radiative decay. These
+systems approximately implement open quantum versions of models for population
+dynamics or disease spreading where species can be in a healthy, infected or
+immune state. We show that in a two-dimensional lattice, depending on the
+dominance of either classical or quantum effects, the system may display a
+different kind of non-equilibrium phase transition. We moreover discuss the
+observability of our findings in laser driven Rydberg gases with particular
+focus on the role of long-range interactions.
+",1,0,0,0,0,0
+14933,14934,In Search of Lost (Mixing) Time: Adaptive Markov chain Monte Carlo schemes for Bayesian variable selection with very large p,"  The availability of data sets with large numbers of variables is rapidly
+increasing. The effective application of Bayesian variable selection methods
+for regression with these data sets has proved difficult since available Markov
+chain Monte Carlo methods do not perform well in typical problem sizes of
+interest. The current paper proposes new adaptive Markov chain Monte Carlo
+algorithms to address this shortcoming. The adaptive design of these algorithms
+exploits the observation that in large $p$ small $n$ settings, the majority of
+the $p$ variables will be approximately uncorrelated a posteriori. The
+algorithms adaptively build suitable non-local proposals that result in moves
+with squared jumping distance significantly larger than standard methods. Their
+performance is studied empirically in high-dimension problems (with both
+simulated and actual data) and speedups of up to 4 orders of magnitude are
+observed. The proposed algorithms are easily implementable on multi-core
+architectures and are well suited for parallel tempering or sequential Monte
+Carlo implementations.
+",1,1,0,0,0,0
+16017,16018,A Game Theoretic Macroscopic Model of Bypassing at Traffic Diverges with Applications to Mixed Autonomy Networks,"  Vehicle bypassing is known to negatively affect delays at traffic diverges.
+However, due to the complexities of this phenomenon, accurate and yet simple
+models of such lane change maneuvers are hard to develop. In this work, we
+present a macroscopic model for predicting the number of vehicles that bypass
+at a traffic diverge. We take into account the selfishness of vehicles in
+selecting their lanes; every vehicle selects lanes such that its own cost is
+minimized. We discuss how we model the costs experienced by the vehicles. Then,
+taking into account the selfish behavior of the vehicles, we model the lane
+choice of vehicles at a traffic diverge as a Wardrop equilibrium. We state and
+prove the properties of Wardrop equilibrium in our model. We show that there
+always exists an equilibrium for our model. Moreover, unlike most nonlinear
+asymmetrical routing games, we prove that the equilibrium is unique under mild
+assumptions. We discuss how our model can be easily calibrated by running a
+simple optimization problem. Using our calibrated model, we validate it through
+simulation studies and demonstrate that our model successfully predicts the
+aggregate lane change maneuvers that are performed by vehicles for bypassing at
+a traffic diverge. We further discuss how our model can be employed to obtain
+the optimal lane choice behavior of the vehicles, where the social or total
+cost of vehicles is minimized. Finally, we demonstrate how our model can be
+utilized in scenarios where a central authority can dictate the lane choice and
+trajectory of certain vehicles so as to increase the overall vehicle mobility
+at a traffic diverge. Examples of such scenarios include the case when both
+human driven and autonomous vehicles coexist in the network. We show how
+certain decisions of the central authority can affect the total delays in such
+scenarios via an example.
+",1,0,0,0,0,0
+8668,8669,Structured Variational Inference for Coupled Gaussian Processes,"  Sparse variational approximations allow for principled and scalable inference
+in Gaussian Process (GP) models. In settings where several GPs are part of the
+generative model, theses GPs are a posteriori coupled. For many applications
+such as regression where predictive accuracy is the quantity of interest, this
+coupling is not crucial. Howewer if one is interested in posterior uncertainty,
+it cannot be ignored. A key element of variational inference schemes is the
+choice of the approximate posterior parameterization. When the number of latent
+variables is large, mean field (MF) methods provide fast and accurate posterior
+means while more structured posterior lead to inference algorithm of greater
+computational complexity. Here, we extend previous sparse GP approximations and
+propose a novel parameterization of variational posteriors in the multi-GP
+setting allowing for fast and scalable inference capturing posterior
+dependencies.
+",0,0,1,0,0,0
+5768,5769,Wormholes and masses for Goldstone bosons,"  There exist non-trivial stationary points of the Euclidean action for an
+axion particle minimally coupled to Einstein gravity, dubbed wormholes. They
+explicitly break the continuos global shift symmetry of the axion in a
+non-perturbative way, and generate an effective potential that may compete with
+QCD depending on the value of the axion decay constant. In this paper, we
+explore both theoretical and phenomenological aspects of this issue. On the
+theory side, we address the problem of stability of the wormhole solutions, and
+we show that the spectrum of the quadratic action features only positive
+eigenvalues. On the phenomenological side, we discuss, beside the obvious
+application to the QCD axion, relevant consequences for models with ultralight
+dark matter, black hole superradiance, and the relaxation of the electroweak
+scale. We conclude discussing wormhole solutions for a generic coset and the
+potential they generate.
+",1,0,0,0,0,0
+2545,2546,Unconditional bases of subspaces related to non-self-adjoint perturbations of self-adjoint operators,"  Assume that $T$ is a self-adjoint operator on a Hilbert space $\mathcal{H}$
+and that the spectrum of $T$ is confined in the union $\bigcup_{j\in
+J}\Delta_j$, $J\subseteq\mathbb{Z}$, of segments $\Delta_j=[\alpha_j,
+\beta_j]\subset\mathbb{R}$ such that $\alpha_{j+1}>\beta_j$ and $$ \inf_{j}
+\left(\alpha_{j+1}-\beta_j\right) = d > 0. $$ If $B$ is a bounded (in general
+non-self-adjoint) perturbation of $T$ with $\|B\|=:b<d/2$ then the spectrum of
+the perturbed operator $A=T+B$ lies in the union $\bigcup_{j\in J}
+U_{b}(\Delta_j)$ of the mutually disjoint closed $b$-neighborhoods
+$U_{b}(\Delta_j)$ of the segments $\Delta_j$ in $\mathbb{C}$. Let $Q_j$ be the
+Riesz projection onto the invariant subspace of $A$ corresponding to the part
+of the spectrum of $A$ lying in $U_{b}\left(\Delta_j\right)$, $j\in J$. Our
+main result is as follows: The subspaces $\mathcal{L}_j=Q_j(\mathcal H)$, $j\in
+J$, form an unconditional basis in the whole space $\mathcal H$.
+",1,0,0,0,0,0

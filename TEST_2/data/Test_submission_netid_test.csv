@@ -1,0 +1,143 @@
+Unnamed: 0,ID,TITLE,text,Computer Science,Physics,Mathematics,Statistics,Quantitative Biology,Quantitative Finance
+17910,17911,The Statistical Recurrent Unit,"  Sophisticated gated recurrent neural network architectures like LSTMs and
+GRUs have been shown to be highly effective in a myriad of applications. We
+develop an un-gated unit, the statistical recurrent unit (SRU), that is able to
+learn long term dependencies in data by only keeping moving averages of
+statistics. The SRU's architecture is simple, un-gated, and contains a
+comparable number of parameters to LSTMs; yet, SRUs perform favorably to more
+sophisticated LSTM and GRU alternatives, often outperforming one or both in
+various tasks. We show the efficacy of SRUs as compared to LSTMs and GRUs in an
+unbiased manner by optimizing respective architectures' hyperparameters in a
+Bayesian optimization scheme for both synthetic and real-world tasks.
+",1,0,0,1,0,0
+3892,3893,Stochastic population dynamics in spatially extended predator-prey systems,"  Spatially extended population dynamics models that incorporate intrinsic
+noise serve as case studies for the role of fluctuations and correlations in
+biological systems. Including spatial structure and stochastic noise in
+predator-prey competition invalidates the deterministic Lotka-Volterra picture
+of neutral population cycles. Stochastic models yield long-lived erratic
+population oscillations stemming from a resonant amplification mechanism. In
+spatially extended predator-prey systems, one observes noise-stabilized
+activity and persistent correlations. Fluctuation-induced renormalizations of
+the oscillation parameters can be analyzed perturbatively. The critical
+dynamics and the non-equilibrium relaxation kinetics at the predator extinction
+threshold are characterized by the directed percolation universality class.
+Spatial or environmental variability results in more localized patches which
+enhances both species densities. Affixing variable rates to individual
+particles and allowing for trait inheritance subject to mutations induces fast
+evolutionary dynamics for the rate distributions. Stochastic spatial variants
+of cyclic competition with rock-paper-scissors interactions illustrate
+connections between population dynamics and evolutionary game theory, and
+demonstrate how space can help maintain diversity. In two dimensions,
+three-species cyclic competition models of the May-Leonard type are
+characterized by the emergence of spiral patterns whose properties are
+elucidated by a mapping onto a complex Ginzburg-Landau equation. Extensions to
+general food networks can be classified on the mean-field level, which provides
+both a fundamental understanding of ensuing cooperativity and emergence of
+alliances. Novel space-time patterns emerge as a result of the formation of
+competing alliances, such as coarsening domains that each incorporate
+rock-paper-scissors competition games.
+",0,1,1,1,0,0
+11720,11721,Merlin-Arthur with efficient quantum Merlin and quantum supremacy for the second level of the Fourier hierarchy,"  We introduce a simple sub-universal quantum computing model, which we call
+the Hadamard-classical circuit with one-qubit (HC1Q) model. It consists of a
+classical reversible circuit sandwiched by two layers of Hadamard gates, and
+therefore it is in the second level of the Fourier hierarchy. We show that
+output probability distributions of the HC1Q model cannot be classically
+efficiently sampled within a multiplicative error unless the polynomial-time
+hierarchy collapses to the second level. The proof technique is different from
+those used for previous sub-universal models, such as IQP, Boson Sampling, and
+DQC1, and therefore the technique itself might be useful for finding other
+sub-universal models that are hard to classically simulate. We also study the
+classical verification of quantum computing in the second level of the Fourier
+hierarchy. To this end, we define a promise problem, which we call the
+probability distribution distinguishability with maximum norm (PDD-Max). It is
+a promise problem to decide whether output probability distributions of two
+quantum circuits are far apart or close. We show that PDD-Max is BQP-complete,
+but if the two circuits are restricted to some types in the second level of the
+Fourier hierarchy, such as the HC1Q model or the IQP model, PDD-Max has a
+Merlin-Arthur system with quantum polynomial-time Merlin and classical
+probabilistic polynomial-time Arthur.
+",1,1,1,1,0,0
+6172,6173,Distribution of the periodic points of the Farey map,"  We expand the cross section of the geodesic flow in the tangent bundle of the
+modular surface given by Series to produce another section whose return map
+under the geodesic flow is a double cover of the natural extension of the Farey
+map. We use this cross section to extend the correspondence between the closed
+geodesics on the modular surface and the periodic points of the Gauss map to
+include the periodic points of the Farey map. Then, analogous to the work of
+Pollicott, we prove an equidistribution result for the periodic points of the
+Farey map when they are ordered according to the length of their corresponding
+closed geodesics.
+",1,1,1,1,0,0
+8155,8156,Learning model-based planning from scratch,"  Conventional wisdom holds that model-based planning is a powerful approach to
+sequential decision-making. It is often very challenging in practice, however,
+because while a model can be used to evaluate a plan, it does not prescribe how
+to construct a plan. Here we introduce the ""Imagination-based Planner"", the
+first model-based, sequential decision-making agent that can learn to
+construct, evaluate, and execute plans. Before any action, it can perform a
+variable number of imagination steps, which involve proposing an imagined
+action and evaluating it with its model-based imagination. All imagined actions
+and outcomes are aggregated, iteratively, into a ""plan context"" which
+conditions future real and imagined actions. The agent can even decide how to
+imagine: testing out alternative imagined actions, chaining sequences of
+actions together, or building a more complex ""imagination tree"" by navigating
+flexibly among the previously imagined states using a learned policy. And our
+agent can learn to plan economically, jointly optimizing for external rewards
+and computational costs associated with using its imagination. We show that our
+architecture can learn to solve a challenging continuous control problem, and
+also learn elaborate planning strategies in a discrete maze-solving task. Our
+work opens a new direction toward learning the components of a model-based
+planning system and how to use them.
+",1,0,0,1,0,0
+2957,2958,Photographic dataset: playing cards,"  This is a photographic dataset collected for testing image processing
+algorithms. The idea is to have images that can exploit the properties of total
+variation, therefore a set of playing cards was distributed on the scene. The
+dataset is made available at www.fips.fi/photographic_dataset2.php
+",1,0,0,1,0,0
+6820,6821,A critical analysis of resampling strategies for the regularized particle filter,"  We analyze the performance of different resampling strategies for the
+regularized particle filter regarding parameter estimation. We show in
+particular, building on analytical insight obtained in the linear Gaussian
+case, that resampling systematically can prevent the filtered density from
+converging towards the true posterior distribution. We discuss several means to
+overcome this limitation, including kernel bandwidth modulation, and provide
+evidence that the resulting particle filter clearly outperforms traditional
+bootstrap particle filters. Our results are supported by numerical simulations
+on a linear textbook example, the logistic map and a non-linear plant growth
+model.
+",1,0,0,1,0,0
+4925,4926,Second order necessary and sufficient optimality conditions for singular solutions of partially-affine control problems,"  In this article we study optimal control problems for systems that are affine
+with respect to some of the control variables and nonlinear in relation to the
+others. We consider finitely many equality and inequality constraints on the
+initial and final values of the state. We investigate singular optimal
+solutions for this class of problems, for which we obtain second order
+necessary and sufficient conditions for weak optimality in integral form. We
+also derive Goh pointwise necessary optimality conditions. We show an example
+to illustrate the results.
+",1,0,1,1,0,0
+735,736,Mixing of odd- and even-frequency pairings in strongly correlated electron systems under magnetic field,"  Even- and odd-frequency superconductivity coexist due to broken time-reversal
+symmetry under magnetic field. In order to describe this mixing, we extend the
+linearized Eliashberg equation for the spin and charge fluctuation mechanism in
+strongly correlated electron systems. We apply this extended Eliashberg
+equation to the odd-frequency superconductivity on a quasi-one-dimensional
+isosceles triangular lattice under in-plane magnetic field and examine the
+effect of the even-frequency component.
+",0,1,1,0,0,0
+3130,3131,New goodness-of-fit diagnostics for conditional discrete response models,"  This paper proposes new specification tests for conditional models with
+discrete responses, which are key to apply efficient maximum likelihood
+methods, to obtain consistent estimates of partial effects and to get
+appropriate predictions of the probability of future events. In particular, we
+test the static and dynamic ordered choice model specifications and can cover
+infinite support distributions for e.g. count data. The traditional approach
+for specification testing of discrete response models is based on probability
+integral transforms of a jittered discrete data which leads to continuous
+uniform iid series under the true conditional distribution. Then, standard
+specification testing techniques for continuous variables could be applied to
+the transformed series, but the extra randomness from jitters affects the power
+properties of these methods. We investigate in this paper an alternative
+transformation based only on original discrete data that avoids any
+randomization. We analyze the asymptotic properties of goodness-of-fit tests
+based on this new transformation and explore the properties in finite samples
+of a bootstrap algorithm to approximate the critical values of test statistics
+which are model and parameter dependent. We show analytically and in
+simulations that our approach dominates the methods based on randomization in
+terms of power. We apply the new tests to models of the monetary policy
+conducted by the Federal Reserve.
+",1,0,0,1,0,0
