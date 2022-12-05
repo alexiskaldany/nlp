@@ -28,7 +28,7 @@ torch.manual_seed(seed)
 random.seed(seed)
 MAX_LENGTH = 128
 LR = 1e-5
-EPOCHS = 3
+EPOCHS = 2
 """Load data"""
 current_dir = Path(__file__).parent
 print(current_dir)
@@ -38,10 +38,11 @@ TEST_PATH = current_dir / "data" / "test.csv"
 MLP_PATH = current_dir / "mlp"
 LSTM_PATH = current_dir / "lstm"
 CNN_PATH = current_dir / "cnn"
-train_df = pd.read_csv(str(TRAIN_PATH),nrows=500).rename(columns={"ABSTRACT": "text"})
+train_df = pd.read_csv(str(TRAIN_PATH)).rename(columns={"ABSTRACT": "text"})
 label_columns = train_df.columns[3:]
 print(label_columns)
-
+output_path = str(current_dir / "ce_all_models.csv")
+print(output_path)
 labels_tensor = [torch.tensor(row,dtype=torch.float32) for row in train_df[label_columns].values]
 print(labels_tensor[0])
 
@@ -144,7 +145,7 @@ class bertMLP(nn.Module):
         self.base_model = AutoModel.from_pretrained("cross-encoder/ms-marco-TinyBERT-L-2-v2", ignore_mismatched_sizes=True)
         self.classifier = nn.Sequential(
             nn.Dropout(dropout),
-            nn.Linear(128, num_classes)
+            nn.Linear(MAX_LENGTH, num_classes)
         )
     def forward(self, input_ids, attention_mask):
         outputs = self.base_model(input_ids=input_ids, attention_mask=attention_mask)
@@ -153,13 +154,13 @@ class bertMLP(nn.Module):
         return logits
 
 bertMLP = bertMLP(num_classes=NUM_CLASSES)
-bertMLP.to(device)
+# bertMLP.to(device)
 class bertLSTM(nn.Module):
     def __init__(self, num_classes):
         super(bertLSTM, self).__init__()
         self.base_model = AutoModel.from_pretrained("cross-encoder/ms-marco-TinyBERT-L-2-v2", ignore_mismatched_sizes=True)
-        self.lstm = nn.LSTM(input_size=128, hidden_size=128, num_layers=1, batch_first=True)
-        self.classifier = nn.Linear(128, num_classes)
+        self.lstm = nn.LSTM(input_size=MAX_LENGTH, hidden_size=MAX_LENGTH, num_layers=1, batch_first=True)
+        self.classifier = nn.Linear(MAX_LENGTH, num_classes)
     
     def forward(self, input_ids, attention_mask):
         outputs = self.base_model(input_ids=input_ids, attention_mask=attention_mask)
@@ -169,12 +170,12 @@ class bertLSTM(nn.Module):
         return logits
 
 bertLSTM = bertLSTM(num_classes=NUM_CLASSES)
-bertLSTM = bertLSTM.to(device)
+# bertLSTM = bertLSTM.to(device)
 class bertCNN(nn.Module):
     def __init__(self, num_classes):
         super(bertCNN, self).__init__()
         self.base_model = AutoModel.from_pretrained("cross-encoder/ms-marco-TinyBERT-L-2-v2", ignore_mismatched_sizes=True)
-        self.conv = nn.Conv1d(in_channels=128, out_channels=128, kernel_size=3, stride=1, padding=1)
+        self.conv = nn.Conv1d(in_channels=MAX_LENGTH, out_channels=MAX_LENGTH, kernel_size=3, stride=1, padding=1)
         self.classifier = nn.Linear(128, num_classes)
     
     def forward(self, input_ids, attention_mask):
@@ -185,7 +186,7 @@ class bertCNN(nn.Module):
         return logits
 
 bertCNN = bertCNN(num_classes=NUM_CLASSES)
-bertCNN.to(device)
+# bertCNN.to(device)
 
 from torch.optim import AdamW
 optimizerMLP = AdamW(bertMLP.parameters(), lr=1e-5)
@@ -193,7 +194,7 @@ optimizerMLP = AdamW(bertMLP.parameters(), lr=1e-5)
 
 
 for epoch in tqdm(range(EPOCHS)):
-    for batch in range(len(train_ds)):
+    for batch in tqdm(range(len(train_ds))):
         input_ids = train_ds[batch]["input_ids"].unsqueeze(0)
         attention_mask = train_ds[batch]["attention_mask"].unsqueeze(0)
         labels = train_ds[batch]["labels"].unsqueeze(0)
@@ -220,13 +221,13 @@ mlp_ce = np.mean(cross_entropy)
 print("MLP CE: ", mlp_ce)
 ce_all_models = pd.DataFrame(columns=["Model", "CE"])
 ce_all_models = ce_all_models.append({"Model": "MLP", "CE": mlp_ce}, ignore_index=True)
-ce_all_models.to_csv("ce_all_models.csv", index=False)
+ce_all_models.to_csv(output_path, index=False)
 
 """LSTM"""
 optimizerLSTM = AdamW(bertLSTM.parameters(), lr=1e-5)
 
 for epoch in tqdm(range(EPOCHS)):
-    for batch in range(len(train_ds)):
+    for batch in tqdm(range(len(train_ds))):
         input_ids = train_ds[batch]["input_ids"].unsqueeze(0)
         attention_mask = train_ds[batch]["attention_mask"].unsqueeze(0)
         labels = train_ds[batch]["labels"].unsqueeze(0)
@@ -245,7 +246,7 @@ for batch in tqdm(range(len(train_ds))):
     
 lstm_ce = np.mean(lstm_ce)
 ce_all_models = ce_all_models.append({"Model": "LSTM", "CE": lstm_ce}, ignore_index=True)
-ce_all_models.to_csv("ce_all_models.csv", index=False)
+ce_all_models.to_csv(output_path, index=False)
 
 """CNN"""
 
@@ -274,4 +275,4 @@ for batch in tqdm(range(len(train_ds))):
     
 cnn_ce = np.mean(cnn_ce)
 ce_all_models = ce_all_models.append({"Model": "CNN", "CE": cnn_ce}, ignore_index=True)
-ce_all_models.to_csv("ce_all_models.csv", index=False)
+ce_all_models.to_csv(output_path, index=False)
