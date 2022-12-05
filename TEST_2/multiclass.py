@@ -27,7 +27,7 @@ np.random.seed(seed)
 torch.manual_seed(seed)
 random.seed(seed)
 MAX_LENGTH = 128
-LR = 1e-5
+LR = 2e-5
 EPOCHS = 3
 """Load data"""
 current_dir = Path(__file__).parent

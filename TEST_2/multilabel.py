@@ -27,7 +27,7 @@ np.random.seed(seed)
 torch.manual_seed(seed)
 random.seed(seed)
 MAX_LENGTH = 128
-LR = 1e-5
+LR = 2e-5
 EPOCHS = 2
 """Load data"""
 current_dir = Path(__file__).parent
@@ -38,10 +38,10 @@ TEST_PATH = current_dir / "data" / "test.csv"
 MLP_PATH = current_dir / "mlp"
 LSTM_PATH = current_dir / "lstm"
 CNN_PATH = current_dir / "cnn"
-train_df = pd.read_csv(str(TRAIN_PATH)).rename(columns={"ABSTRACT": "text"})
+train_df = pd.read_csv(str(TRAIN_PATH),nrows=2500).rename(columns={"ABSTRACT": "text"})
 label_columns = train_df.columns[3:]
 print(label_columns)
-output_path = str(current_dir / "ce_all_models.csv")
+output_path = str(current_dir / "2e5ce_all_models.csv")
 print(output_path)
 labels_tensor = [torch.tensor(row,dtype=torch.float32) for row in train_df[label_columns].values]
 print(labels_tensor[0])
@@ -189,7 +189,7 @@ bertCNN = bertCNN(num_classes=NUM_CLASSES)
 # bertCNN.to(device)
 
 from torch.optim import AdamW
-optimizerMLP = AdamW(bertMLP.parameters(), lr=1e-5)
+optimizerMLP = AdamW(bertMLP.parameters(), lr=LR)
 # MLP
 
 
@@ -224,7 +224,7 @@ ce_all_models = ce_all_models.append({"Model": "MLP", "CE": mlp_ce}, ignore_inde
 ce_all_models.to_csv(output_path, index=False)
 
 """LSTM"""
-optimizerLSTM = AdamW(bertLSTM.parameters(), lr=1e-5)
+optimizerLSTM = AdamW(bertLSTM.parameters(), lr=LR)
 
 for epoch in tqdm(range(EPOCHS)):
     for batch in tqdm(range(len(train_ds))):
@@ -245,15 +245,16 @@ for batch in tqdm(range(len(train_ds))):
     lstm_ce.append(torch.nn.functional.cross_entropy(outputs,labels).item())
     
 lstm_ce = np.mean(lstm_ce)
+print("LSTM CE: ", lstm_ce)
 ce_all_models = ce_all_models.append({"Model": "LSTM", "CE": lstm_ce}, ignore_index=True)
 ce_all_models.to_csv(output_path, index=False)
 
 """CNN"""
 
-optimizerCNN = AdamW(bertCNN.parameters(), lr=1e-5)
+optimizerCNN = AdamW(bertCNN.parameters(), lr=LR)
 
 for epoch in tqdm(range(EPOCHS)):
-    for batch in range(len(train_ds)):
+    for batch in tqdm(range(len(train_ds))):
         input_ids = train_ds[batch]["input_ids"].unsqueeze(0)
         attention_mask = train_ds[batch]["attention_mask"].unsqueeze(0)
         labels = train_ds[batch]["labels"].unsqueeze(0)
@@ -274,5 +275,6 @@ for batch in tqdm(range(len(train_ds))):
    
     
 cnn_ce = np.mean(cnn_ce)
+print("CNN CE: ", cnn_ce)
 ce_all_models = ce_all_models.append({"Model": "CNN", "CE": cnn_ce}, ignore_index=True)
 ce_all_models.to_csv(output_path, index=False)
