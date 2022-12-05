@@ -1,12 +1,8 @@
-import transformers
 import torch
 from torch.utils.data import Dataset, DataLoader
 from transformers import (
     AutoModel,
     AutoTokenizer,
-    AutoModelForSequenceClassification,
-    TrainingArguments,
-    Trainer,
     DataCollatorWithPadding,
 )
 import random
