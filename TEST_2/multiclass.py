@@ -30,7 +30,7 @@ seed = 42
 np.random.seed(seed)
 torch.manual_seed(seed)
 random.seed(seed)
-MAX_LENGTH = 512
+MAX_LENGTH = 128
 LR = 1e-5
 EPOCHS = 3
 """Load data"""
@@ -42,12 +42,12 @@ TEST_PATH = current_dir / "data" / "test.csv"
 MLP_PATH = current_dir / "mlp"
 LSTM_PATH = current_dir / "lstm"
 CNN_PATH = current_dir / "cnn"
-train_df = pd.read_csv(str(TRAIN_PATH)).rename(
+train_df = pd.read_csv(str(TRAIN_PATH),nrows=500).rename(
     columns={"content": "text", "category": "label"}
 )
 NUM_CLASSES = train_df["label"].nunique()
 LABEL_TO_ID = {label: int(i) for i, label in enumerate(train_df["label"].unique())}
-test_df = pd.read_csv(str(TEST_PATH)).rename(
+test_df = pd.read_csv(str(TEST_PATH),nrows=500).rename(
     columns={"content": "text", "category": "label"}
 )
 print(train_df.head())
@@ -129,47 +129,164 @@ print(test_ds[0])
 
 
 ################### Changes between multi
-def compute_metrics(eval_preds):
-    metric = load_metric("accuracy")
-    logits, labels = eval_preds
-    predictions = np.argmax(logits, axis=-1)
-    labels_argmax = np.argmax(labels, axis=-1)
-    results = metric.compute(predictions=predictions, references=labels_argmax)
-    return results
+# def compute_metrics(eval_preds):
+#     metric = load_metric("accuracy")
+#     logits, labels = eval_preds
+#     predictions = np.argmax(logits, axis=-1)
+#     labels_argmax = np.argmax(labels, axis=-1)
+#     results = metric.compute(predictions=predictions, references=labels_argmax)
+#     return results
 
 
 data_collator = DataCollatorWithPadding(
     tokenizer=tokenizer, padding=True, max_length=MAX_LENGTH
 )
-
-mlp_model = AutoModel.from_pretrained("bert-base-uncased")
-print(mlp_model)
-mlp_model.add_module("classifier", torch.nn.Linear(768, NUM_CLASSES))
+""" Models"""
+from torch import nn
 
 
+class bertMLP(nn.Module):
+    def __init__(self, num_classes, dropout=0.1):
+        super(bertMLP, self).__init__()
+        self.base_model = AutoModel.from_pretrained("cross-encoder/ms-marco-TinyBERT-L-2-v2", ignore_mismatched_sizes=True)
+        self.classifier = nn.Sequential(
+            nn.Dropout(dropout),
+            nn.Linear(128, num_classes)
+        )
+    def forward(self, input_ids, attention_mask):
+        outputs = self.base_model(input_ids=input_ids, attention_mask=attention_mask)
+        pooled_output = outputs[1]
+        logits = self.classifier(pooled_output)
+        return logits
 
-training_args = TrainingArguments(
-    output_dir=MLP_PATH,
-    learning_rate=LR,
-    # per_device_train_batch_size=BATCH_SIZE,
-    # per_device_eval_batch_size=BATCH_SIZE,
-    overwrite_output_dir=True,
-    num_train_epochs=EPOCHS,
-    weight_decay=0.01,
-    seed=seed,
-    evaluation_strategy="epoch",
-)
-mlp_trainer = Trainer(
-    model=mlp_model,
-    args=training_args,
-    train_dataset=train_ds,
-    eval_dataset=test_ds,
-    tokenizer=tokenizer,
-    data_collator=data_collator,
-    compute_metrics=compute_metrics,
-)
-mlp_trainer.train()
-mlp_trainer.evaluate()
+bertMLP = bertMLP(num_classes=NUM_CLASSES)
+
+class bertLSTM(nn.Module):
+    def __init__(self, num_classes):
+        super(bertLSTM, self).__init__()
+        self.base_model = AutoModel.from_pretrained("cross-encoder/ms-marco-TinyBERT-L-2-v2", ignore_mismatched_sizes=True)
+        self.lstm = nn.LSTM(input_size=128, hidden_size=128, num_layers=1, batch_first=True)
+        self.classifier = nn.Linear(128, num_classes)
+    
+    def forward(self, input_ids, attention_mask):
+        outputs = self.base_model(input_ids=input_ids, attention_mask=attention_mask)
+        last_hidden_states = outputs[0]
+        lstm_out, (h_n, c_n) = self.lstm(last_hidden_states)
+        logits = self.classifier(lstm_out[:, -1, :])
+        return logits
+
+bertLSTM = bertLSTM(num_classes=NUM_CLASSES)
+
+class bertCNN(nn.Module):
+    def __init__(self, num_classes):
+        super(bertCNN, self).__init__()
+        self.base_model = AutoModel.from_pretrained("cross-encoder/ms-marco-TinyBERT-L-2-v2", ignore_mismatched_sizes=True)
+        self.conv = nn.Conv1d(in_channels=128, out_channels=128, kernel_size=3, stride=1, padding=1)
+        self.classifier = nn.Linear(128, num_classes)
+    
+    def forward(self, input_ids, attention_mask):
+        outputs = self.base_model(input_ids=input_ids, attention_mask=attention_mask)
+        last_hidden_states = outputs[0]
+        conv_out = self.conv(last_hidden_states.transpose(1, 2))
+        logits = self.classifier(conv_out[:, -1, :])
+        return logits
+
+bertCNN = bertCNN(num_classes=NUM_CLASSES)
+
+from torch.optim import AdamW
+optimizerMLP = AdamW(bertMLP.parameters(), lr=1e-5)
+# MLP
+
+
+for epoch in range(EPOCHS):
+    for batch in range(len(train_ds)):
+        input_ids = train_ds[batch]["input_ids"].unsqueeze(0)
+        attention_mask = train_ds[batch]["attention_mask"].unsqueeze(0)
+        labels = train_ds[batch]["labels"].unsqueeze(0)
+        outputs = bertMLP(input_ids=input_ids, attention_mask=attention_mask)
+        loss = torch.nn.functional.cross_entropy(outputs,labels)
+        loss.backward()
+        optimizerMLP.step()
+        optimizerMLP.zero_grad()
+        # predicted = torch.argmax(outputs, dim=1)
+        # labels = torch.argmax(labels, dim=1)
+        # print("Epoch: ", epoch, "Batch: ", batch, "Loss: ", loss.item(), "Predicted: ", predicted.item(), "Labels: ", labels.item())
+# testing model using accuracy score as metric
+accuracy = []
+for batch in range(len(test_ds)):
+    input_ids = test_ds[batch]["input_ids"].unsqueeze(0)
+    attention_mask = test_ds[batch]["attention_mask"].unsqueeze(0)
+    labels = test_ds[batch]["labels"].unsqueeze(0)
+    outputs = bertMLP(input_ids=input_ids, attention_mask=attention_mask)
+    labels = torch.argmax(labels, dim=1)
+    predicted = torch.argmax(outputs, dim=1)
+    accuracy.append(predicted.item() == labels.item())
+    
+    
+
+mlp_accuracy = sum(accuracy)/len(accuracy)
+print("MLP Accuracy: ", mlp_accuracy)
+accuracy_all_models = pd.DataFrame(columns=["Model", "Accuracy"])
+accuracy_all_models = accuracy_all_models.append({"Model": "MLP", "Accuracy": mlp_accuracy}, ignore_index=True)
+accuracy_all_models.to_csv("accuracy_all_models.csv", index=False)
+
 """LSTM"""
+optimizerLSTM = AdamW(bertLSTM.parameters(), lr=1e-5)
+
+for epoch in range(EPOCHS):
+    for batch in range(len(train_ds)):
+        input_ids = train_ds[batch]["input_ids"].unsqueeze(0)
+        attention_mask = train_ds[batch]["attention_mask"].unsqueeze(0)
+        labels = train_ds[batch]["labels"].unsqueeze(0)
+        outputs = bertLSTM(input_ids=input_ids, attention_mask=attention_mask)
+        loss = torch.nn.functional.cross_entropy(outputs,labels)
+        loss.backward()
+        optimizerLSTM.step()
+        optimizerLSTM.zero_grad()
+        # predicted = torch.argmax(outputs, dim=1)
+        # labels = torch.argmax(labels, dim=1)
+        # print("Epoch: ", epoch, "Batch: ", batch, "Loss: ", loss.item(), "Predicted: ", predicted.item(), "Labels: ", labels.item())
+        
+accuracy = []
+for batch in range(len(test_ds)):
+    input_ids = test_ds[batch]["input_ids"].unsqueeze(0)
+    attention_mask = test_ds[batch]["attention_mask"].unsqueeze(0)
+    labels = test_ds[batch]["labels"].unsqueeze(0)
+    outputs = bertLSTM(input_ids=input_ids, attention_mask=attention_mask)
+    labels = torch.argmax(labels, dim=1)
+    predicted = torch.argmax(outputs, dim=1)
+    accuracy.append(predicted.item() == labels.item())
+    
+lstm_accuracy = sum(accuracy)/len(accuracy)
+accuracy_all_models = accuracy_all_models.append({"Model": "LSTM", "Accuracy": lstm_accuracy}, ignore_index=True)
+accuracy_all_models.to_csv("accuracy_all_models.csv", index=False)
 
 """CNN"""
+
+optimizerCNN = AdamW(bertCNN.parameters(), lr=1e-5)
+
+for epoch in range(EPOCHS):
+    for batch in range(len(train_ds)):
+        input_ids = train_ds[batch]["input_ids"].unsqueeze(0)
+        attention_mask = train_ds[batch]["attention_mask"].unsqueeze(0)
+        labels = train_ds[batch]["labels"].unsqueeze(0)
+        outputs = bertCNN(input_ids=input_ids, attention_mask=attention_mask)
+        loss = torch.nn.functional.cross_entropy(outputs,labels)
+        loss.backward()
+        optimizerCNN.step()
+        optimizerCNN.zero_grad()
+
+accuracy = []
+
+for batch in range(len(test_ds)):
+    input_ids = test_ds[batch]["input_ids"].unsqueeze(0)
+    attention_mask = test_ds[batch]["attention_mask"].unsqueeze(0)
+    labels = test_ds[batch]["labels"].unsqueeze(0)
+    outputs = bertCNN(input_ids=input_ids, attention_mask=attention_mask)
+    labels = torch.argmax(labels, dim=1)
+    predicted = torch.argmax(outputs, dim=1)
+    accuracy.append(predicted.item() == labels.item())
+    
+cnn_accuracy = sum(accuracy)/len(accuracy)
+accuracy_all_models = accuracy_all_models.append({"Model": "CNN", "Accuracy": cnn_accuracy}, ignore_index=True)
+accuracy_all_models.to_csv("accuracy_all_models.csv", index=False)
