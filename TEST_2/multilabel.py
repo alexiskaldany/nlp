@@ -82,6 +82,8 @@ print(output_path)
 row_labels = []
 for row in train_df[label_columns].values:
     row_labels.append(row)
+value_counts = train_df[label_columns].sum(axis=0).sort_values(ascending=False)
+print(value_counts)
 labels_tensor = [torch.tensor(label, dtype=torch.float32) for label in row_labels]
 print(labels_tensor[0])
 NUM_CLASSES = len(label_columns)
@@ -251,15 +253,12 @@ converted_output_final = []
 """ converting output into 0 or 1"""
 def convert_output_to_label(output):
     new_output = []
-    print(output)
     output = output.detach().numpy().tolist()[0]
-    
     for i in range(len(output)):
         if output[i] >= 0.5:
             new_output.append(1)
         else:
             new_output.append(0)
-    print(new_output)
     return new_output
             
 for batch in tqdm(range(len(test_ds))):
